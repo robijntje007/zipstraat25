@@ -33,12 +33,23 @@ section{padding:clamp(3.5rem,8vw,7rem) 0}
 /* ── Navigatie ── */
 header{
   position:fixed;inset:0 0 auto;z-index:50;padding:1.1rem 0;
-  transition:background .3s,padding .3s,box-shadow .3s;
+  /* lichte sluier, zodat witte tekst ook op een lichte lucht leesbaar blijft */
+  background:linear-gradient(rgba(10,8,5,.42),rgba(10,8,5,0));
+  transition:background .35s ease,padding .3s ease,box-shadow .3s ease;
 }
 header.stuck{
   background:color-mix(in srgb,var(--bg) 88%,transparent);
   backdrop-filter:blur(14px);padding:.6rem 0;box-shadow:0 1px 0 var(--line);
 }
+
+/* Boven de herofoto is alles wit; .stuck zet het terug naar de paginakleuren. */
+.brand,nav a,.icon-btn{transition:color .35s ease,border-color .35s ease,background .35s ease}
+header:not(.stuck) .brand{color:#fff}
+header:not(.stuck) nav a{color:rgba(255,255,255,.85);border-bottom-color:transparent}
+header:not(.stuck) nav a:hover{color:#fff;border-bottom-color:#fff}
+header:not(.stuck) nav a[aria-current="page"]{color:#fff;border-bottom-color:#fff}
+header:not(.stuck) .icon-btn{color:#fff;border-color:rgba(255,255,255,.5)}
+header:not(.stuck) .icon-btn:hover{border-color:#fff}
 header .wrap{display:flex;align-items:center;gap:1.5rem}
 .brand{
   font-family:Fraunces,serif;font-weight:600;font-size:1.05rem;
@@ -54,12 +65,9 @@ nav::-webkit-scrollbar{display:none}
 /* Onder 900px zakt het menu naar een eigen regel die mee vastgeprikt blijft,
    zodat je ook op een telefoon tussen de secties kunt springen. */
 @media(max-width:899px){
-  /* altijd een achtergrond: de balk ligt hier over de herofoto */
-  header{
-    padding:.55rem 0;
-    background:color-mix(in srgb,var(--bg) 92%,transparent);
-    backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);
-  }
+  header{padding:.55rem 0}
+  /* de sluier moet hier dieper doorlopen: de balk is twee regels hoog */
+  header:not(.stuck){background:linear-gradient(rgba(10,8,5,.55),rgba(10,8,5,0))}
   header .wrap{flex-wrap:wrap;gap:.5rem 1rem}
   .brand{font-size:.98rem}
   nav{order:3;width:100%;gap:.45rem;padding-bottom:.1rem}
@@ -68,6 +76,8 @@ nav::-webkit-scrollbar{display:none}
     padding:.33rem .75rem;font-size:.78rem;background:var(--bg);
   }
   nav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  header:not(.stuck) nav a{background:rgba(10,8,5,.3);border-color:rgba(255,255,255,.35)}
+  header:not(.stuck) nav a[aria-current="page"]{background:var(--accent);border-color:var(--accent)}
   html{scroll-padding-top:7.5rem}
 }
 nav a{
@@ -250,3 +260,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-
   padding:.15rem .85rem;border-radius:3px;letter-spacing:.02em;
 }
 .band-note{margin:1.6rem 0 0;text-align:center;font-size:.9rem;color:var(--muted)}
+
+/* ── Videoblok zolang de rondleiding nog niet klaar is ── */
+.video-soon{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow)}
+.video-soon img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.55) brightness(.5)}
+.video-soon__body{
+  position:absolute;inset:0;display:grid;place-content:center;justify-items:center;
+  gap:1rem;text-align:center;padding:1.5rem;color:#fff;
+}
+.video-soon__play{
+  width:4rem;height:4rem;display:grid;place-items:center;border-radius:50%;
+  border:2px solid rgba(255,255,255,.7);font-size:1.3rem;padding-left:.25rem;
+}
+.video-soon__body p{margin:0;max-width:34ch;font-size:1.02rem;color:rgba(255,255,255,.92)}
