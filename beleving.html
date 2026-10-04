@@ -61,7 +61,7 @@ blockquote footer{border:0;padding:0;margin-top:1.2rem;font:500 .8rem/1 Inter,sa
 <header id="top-bar">
   <div class="wrap">
     <a class="brand" href="index.html">Zipstraat&nbsp;25</a>
-    <nav>
+    <nav id="hoofdmenu">
       <a href="index.html#woning">De woning</a>
       <a href="index.html#energie">Energie</a>
       <a href="index.html#galerij">Galerij</a>
@@ -72,6 +72,7 @@ blockquote footer{border:0;padding:0;margin-top:1.2rem;font:500 .8rem/1 Inter,sa
       <a href="index.html#contact">Contact</a>
     </nav>
     <button class="icon-btn" id="theme" aria-label="Wissel tussen licht en donker thema">🌙</button>
+    <button class="menu-btn" id="menu" aria-label="Menu openen" aria-expanded="false" aria-controls="hoofdmenu"><span></span></button>
   </div>
 </header>
 
@@ -187,7 +188,18 @@ btn.onclick = () => {
   try { localStorage.setItem('theme', t); } catch {}
 };
 
-const bar = document.getElementById('top-bar');
+// ── Mobiel menu ──
+const bar = document.getElementById('top-bar'), menuBtn = document.getElementById('menu');
+const menu = open => {
+  bar.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+};
+menuBtn.onclick = () => menu(!bar.classList.contains('open'));
+bar.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => menu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape') menu(false); });
+addEventListener('click', e => { if (!bar.contains(e.target)) menu(false); });
+
 addEventListener('scroll', () => bar.classList.toggle('stuck', scrollY > 40), {passive:true});
 
 const io = new IntersectionObserver((es, o) => es.forEach(e => {

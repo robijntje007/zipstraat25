@@ -62,23 +62,85 @@ nav{
 nav::-webkit-scrollbar{display:none}
 @media(min-width:1120px){nav{gap:1.6rem}}
 
-/* Onder 900px zakt het menu naar een eigen regel die mee vastgeprikt blijft,
-   zodat je ook op een telefoon tussen de secties kunt springen. */
+/* Onder 900px verdwijnt het menu achter één knop en klapt het open als paneel.
+   De iconen staan als CSS-masker op de links, zodat de HTML schoon blijft. */
+.menu-btn{display:none}
 @media(max-width:899px){
-  header{padding:.55rem 0}
-  /* de sluier moet hier dieper doorlopen: de balk is twee regels hoog */
-  header:not(.stuck){background:linear-gradient(rgba(10,8,5,.55),rgba(10,8,5,0))}
-  header .wrap{flex-wrap:wrap;gap:.5rem 1rem}
-  .brand{font-size:.98rem}
-  nav{order:3;width:100%;gap:.45rem;padding-bottom:.1rem}
-  nav a{
-    border:1px solid var(--line);border-radius:100px;
-    padding:.33rem .75rem;font-size:.78rem;background:var(--bg);
+  header{padding:.6rem 0}
+  header .wrap{gap:.75rem}
+  /* gespiegeld t.o.v. desktop: knoppen links, naam rechts */
+  .menu-btn{order:-2}
+  #theme{order:-1}
+  .brand{order:0;font-size:.98rem;margin:0 0 0 auto}
+
+  /* Hamburger die bij openen naar een kruis kantelt */
+  .menu-btn{
+    display:grid;place-items:center;width:2.3rem;height:2.3rem;flex:none;
+    background:none;border:1px solid var(--line);border-radius:50%;
+    cursor:pointer;color:var(--text);transition:border-color .2s,color .35s ease;
   }
-  nav a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:#fff}
-  header:not(.stuck) nav a{background:rgba(10,8,5,.3);border-color:rgba(255,255,255,.35)}
-  header:not(.stuck) nav a[aria-current="page"]{background:var(--accent);border-color:var(--accent)}
-  html{scroll-padding-top:7.5rem}
+  header:not(.stuck) .menu-btn{color:#fff;border-color:rgba(255,255,255,.5)}
+  .menu-btn span{position:relative;display:block}
+  .menu-btn span,.menu-btn span::before,.menu-btn span::after{
+    content:"";width:1.05rem;height:1.5px;border-radius:2px;background:currentColor;
+    transition:transform .3s cubic-bezier(.3,.9,.3,1),background .18s ease;
+  }
+  .menu-btn span::before{position:absolute;top:-.33rem}
+  .menu-btn span::after{position:absolute;top:.33rem}
+  header.open .menu-btn span{background:transparent}  /* geen opacity: dat dooft de streepjes mee uit */
+  header.open .menu-btn span::before{transform:translateY(.33rem) rotate(45deg)}
+  header.open .menu-btn span::after{transform:translateY(-.33rem) rotate(-45deg)}
+
+  /* Het paneel zelf */
+  nav{
+    position:absolute;top:calc(100% - .35rem);right:1rem;left:1rem;
+    display:grid;gap:.1rem;padding:.5rem;overflow:visible;
+    background:var(--bg);
+    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    opacity:0;visibility:hidden;transform:translateY(-.6rem) scale(.97);transform-origin:top left;
+    transition:opacity .2s ease,transform .28s cubic-bezier(.2,.9,.3,1),visibility .28s;
+  }
+  header.open nav{opacity:1;visibility:visible;transform:none}
+
+  nav a,header:not(.stuck) nav a{
+    display:flex;align-items:center;gap:.75rem;color:var(--text);
+    padding:.62rem .7rem;border:0;border-radius:9px;font-size:.95rem;background:none;
+  }
+  nav a::before{
+    content:"";width:1.15rem;height:1.15rem;flex:none;background:currentColor;opacity:.5;
+    -webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat;
+  }
+  nav a:active{background:var(--surface)}
+  nav a[aria-current="page"],header:not(.stuck) nav a[aria-current="page"]{
+    background:var(--surface);color:var(--accent);border:0;
+  }
+  nav a[aria-current="page"]::before{opacity:1}
+
+  /* De regels komen kort na elkaar binnen */
+  header.open nav a{animation:menu-rij .3s cubic-bezier(.2,.9,.3,1) backwards}
+  header.open nav a:nth-child(1){animation-delay:.04s}
+  header.open nav a:nth-child(2){animation-delay:.07s}
+  header.open nav a:nth-child(3){animation-delay:.10s}
+  header.open nav a:nth-child(4){animation-delay:.13s}
+  header.open nav a:nth-child(5){animation-delay:.16s}
+  header.open nav a:nth-child(6){animation-delay:.19s}
+  header.open nav a:nth-child(7){animation-delay:.22s}
+  header.open nav a:nth-child(8){animation-delay:.25s}
+
+  /* Iconen, op hrefs gekoppeld zodat beide pagina's ze krijgen */
+  nav a[href*="woning"] {--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10.5 12 3l9 7.5'/%3E%3Cpath d='M5.5 9.5V21h13V9.5'/%3E%3Cpath d='M10 21v-6h4v6'/%3E%3C/svg%3E")}
+  nav a[href*="energie"]{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z'/%3E%3C/svg%3E")}
+  nav a[href*="galerij"]{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8.8' cy='8.8' r='1.6'/%3E%3Cpath d='m3.5 17 4.8-4.3 5 4.3'/%3E%3Cpath d='m13.5 14.2 2.6-2.3 4.4 4'/%3E%3C/svg%3E")}
+  nav a[href*="video"]  {--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='6' width='13' height='12' rx='2'/%3E%3Cpath d='m15.5 11 6-3.2v8.4l-6-3.2z'/%3E%3C/svg%3E")}
+  nav a[href*="beleving"]{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20.5s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.8a4.2 4.2 0 0 1 7.5 2.7c0 5.4-7.5 10-7.5 10z'/%3E%3C/svg%3E")}
+  nav a[href*="info"]   {--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 11v5.5'/%3E%3Cpath d='M12 7.7v.1'/%3E%3C/svg%3E")}
+  nav a[href*="ligging"]{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21.5s6.8-6.9 6.8-11.4a6.8 6.8 0 1 0-13.6 0C5.2 14.6 12 21.5 12 21.5z'/%3E%3Ccircle cx='12' cy='10' r='2.4'/%3E%3C/svg%3E")}
+  nav a[href*="contact"]{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='5' width='19' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E")}
+}
+@keyframes menu-rij{from{opacity:0;transform:translateY(-.4rem)}}
+@media(prefers-reduced-motion:reduce){
+  nav,.menu-btn span,.menu-btn span::before,.menu-btn span::after{transition-duration:.01s}
+  header.open nav a{animation:none}
 }
 nav a{
   text-decoration:none;font-size:.86rem;font-weight:500;color:var(--muted);

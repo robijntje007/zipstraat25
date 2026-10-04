@@ -33,7 +33,7 @@
 <header id="top-bar">
   <div class="wrap">
     <a class="brand" href="#hero">Zipstraat&nbsp;25</a>
-    <nav>
+    <nav id="hoofdmenu">
       <a href="#woning">De woning</a>
       <a href="#energie">Energie</a>
       <a href="#galerij">Galerij</a>
@@ -44,6 +44,7 @@
       <a href="#contact">Contact</a>
     </nav>
     <button class="icon-btn" id="theme" aria-label="Wissel tussen licht en donker thema">🌙</button>
+    <button class="menu-btn" id="menu" aria-label="Menu openen" aria-expanded="false" aria-controls="hoofdmenu"><span></span></button>
   </div>
 </header>
 
@@ -706,7 +707,18 @@ btn.onclick = () => {
 };
 
 // ── Navigatiebalk krijgt achtergrond zodra je scrolt ──
-const bar = document.getElementById('top-bar');
+// ── Mobiel menu ──
+const bar = document.getElementById('top-bar'), menuBtn = document.getElementById('menu');
+const menu = open => {
+  bar.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+};
+menuBtn.onclick = () => menu(!bar.classList.contains('open'));
+bar.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => menu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape') menu(false); });
+addEventListener('click', e => { if (!bar.contains(e.target)) menu(false); });
+
 addEventListener('scroll', () => bar.classList.toggle('stuck', scrollY > 40), {passive:true});
 
 // ── Galerijfilter ──
