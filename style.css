@@ -44,13 +44,16 @@ header .wrap{display:flex;align-items:center;gap:1.5rem}
   font-family:Fraunces,serif;font-weight:600;font-size:1.05rem;
   text-decoration:none;letter-spacing:-.01em;margin-right:auto;
 }
-nav{display:none;gap:1.6rem}
+nav{display:none;gap:1.05rem;min-width:0;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
 @media(min-width:900px){nav{display:flex}}
+@media(min-width:1120px){nav{gap:1.6rem}}
 nav a{
   text-decoration:none;font-size:.86rem;font-weight:500;color:var(--muted);
-  padding:.2rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
+  padding:.2rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;flex:none;
 }
 nav a:hover{color:var(--text);border-color:var(--accent)}
+nav a[aria-current="page"]{color:var(--text);border-color:var(--accent)}
 .icon-btn{
   background:none;border:1px solid var(--line);border-radius:50%;
   width:2.3rem;height:2.3rem;display:grid;place-items:center;
@@ -93,7 +96,7 @@ nav a:hover{color:var(--text);border-color:var(--accent)}
 @keyframes bob{0%,100%{translate:-50% 0}50%{translate:-50% .5rem}}
 
 /* ── Kerncijfers ── */
-#kerncijfers{background:var(--surface);border-block:1px solid var(--line)}
+.band{background:var(--surface);border-block:1px solid var(--line)}
 .facts{
   display:grid;gap:1px;background:var(--line);
   grid-template-columns:repeat(2,1fr);border:1px solid var(--line);
@@ -198,3 +201,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-
   .scroll-hint{animation:none}
   .grid img,.btn,.contact-card{transition:none}
 }
+
+/* ── Energieblok ── */
+.fact .label-epc{
+  display:inline-block;background:#2e7d32;color:#fff;
+  font-family:Inter,sans-serif;font-size:1.1rem;font-weight:700;
+  padding:.15rem .85rem;border-radius:3px;letter-spacing:.02em;
+}
+.band-note{margin:1.6rem 0 0;text-align:center;font-size:.9rem;color:var(--muted)}

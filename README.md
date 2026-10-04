@@ -22,11 +22,14 @@ Website voor de verkoop van de woning **Zipstraat 25, 3900 Pelt (België)**.
 
 ## Nog aan te vullen
 
-1. **EPC en stedenbouwkundige info** — in de sectie `INFO` van `index.html` staat bij
-   twaalf velden `In aanvraag`. In Vlaanderen is het wettelijk verplicht om bij
-   publiciteit voor de verkoop minstens het **EPC-label** en de **energiescore
-   (kWh/m²jaar)** te vermelden. Vervang de waarden zodra de attesten binnen zijn.
-2. **Videorondleiding** — de sectie `VIDEO` toont nu een tijdelijke placeholder
+1. **Energiescore en EPC-certificaatnummer** — het label (**B**) staat ingevuld, maar
+   de score in kWh/m²jaar en het certificaatnummer staan nog op `In aanvraag`. Beide
+   staan op de eerste bladzijde van het EPC-attest. In Vlaanderen is het wettelijk
+   verplicht om bij publiciteit zowel het label als de score te vermelden.
+2. **Stedenbouwkundige info** — de overige velden in de sectie `INFO` staan op
+   `In aanvraag`; op te vragen bij gemeente Pelt, en de P- en G-score gratis via
+   waterinfo.be.
+3. **Videorondleiding** — de sectie `VIDEO` toont nu een tijdelijke placeholder
    (`dQw4w9WgXcQ`). Vervang dat ID door het echte YouTube-ID vóór de woning
    publiek gedeeld wordt.
 
