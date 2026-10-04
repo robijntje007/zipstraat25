@@ -44,12 +44,6 @@
       <a href="beleving.html">Beleving</a>
     </nav>
     <button class="icon-btn" id="theme" aria-label="Wissel tussen licht en donker thema">🌙</button>
-    <button class="icon-btn" id="deel" aria-label="Deze pagina delen" title="Delen">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/>
-        <path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>
-      </svg>
-    </button>
     <button class="menu-btn" id="menu" aria-label="Menu openen" aria-expanded="false" aria-controls="hoofdmenu"><span></span></button>
   </div>
 </header>
@@ -274,12 +268,6 @@
         <img src="img/thumb/buiten-04.jpg" alt="Zonnepanelen én zonneboiler liggen samen op het dak"
              width="2000" height="1335" loading="lazy" decoding="async">
       </a>
-      <a href="img/full/buiten-05.jpg" data-f="buiten"
-         data-pswp-width="2000" data-pswp-height="1335"
-         data-caption="Tuin, terras en bijgebouw in één oogopslag" data-label="Tuin, terras en bijgebouw in één oogopslag">
-        <img src="img/thumb/buiten-05.jpg" alt="Tuin, terras en bijgebouw in één oogopslag"
-             width="2000" height="1335" loading="lazy" decoding="async">
-      </a>
       <a href="img/full/buiten-06.jpg" data-f="buiten"
          data-pswp-width="2000" data-pswp-height="1335"
          data-caption="Het overdekte terras onder de zonnewering" data-label="Het overdekte terras onder de zonnewering">
@@ -294,14 +282,8 @@
       </a>
       <a href="img/full/buiten-08.jpg" data-f="buiten"
          data-pswp-width="2000" data-pswp-height="1335"
-         data-caption="De brede oprit in klinkers, met plaats voor meerdere wagens" data-label="De brede oprit in klinkers, met plaats voor meerdere wagens">
-        <img src="img/thumb/buiten-08.jpg" alt="De brede oprit in klinkers, met plaats voor meerdere wagens"
-             width="2000" height="1335" loading="lazy" decoding="async">
-      </a>
-      <a href="img/full/buiten-09.jpg" data-f="buiten"
-         data-pswp-width="2000" data-pswp-height="1335"
-         data-caption="Twee garages: één ingebouwd, één vrijstaand" data-label="Twee garages: één ingebouwd, één vrijstaand">
-        <img src="img/thumb/buiten-09.jpg" alt="Twee garages: één ingebouwd, één vrijstaand"
+         data-caption="Twee garages — één ingebouwd, één vrijstaand — aan een brede oprit in klinkers" data-label="Twee garages — één ingebouwd, één vrijstaand — aan een brede oprit in klinkers">
+        <img src="img/thumb/buiten-08.jpg" alt="Twee garages — één ingebouwd, één vrijstaand — aan een brede oprit in klinkers"
              width="2000" height="1335" loading="lazy" decoding="async">
       </a>
       <a href="img/full/buiten-10.jpg" data-f="buiten"
@@ -312,14 +294,8 @@
       </a>
       <a href="img/full/buiten-11.jpg" data-f="buiten"
          data-pswp-width="2000" data-pswp-height="1335"
-         data-caption="Van opzij ziet u hoe royaal het perceel is" data-label="Van opzij ziet u hoe royaal het perceel is">
-        <img src="img/thumb/buiten-11.jpg" alt="Van opzij ziet u hoe royaal het perceel is"
-             width="2000" height="1335" loading="lazy" decoding="async">
-      </a>
-      <a href="img/full/buiten-12.jpg" data-f="buiten"
-         data-pswp-width="2000" data-pswp-height="1335"
-         data-caption="De woning ligt vrij, met open veld aan de achterzijde" data-label="De woning ligt vrij, met open veld aan de achterzijde">
-        <img src="img/thumb/buiten-12.jpg" alt="De woning ligt vrij, met open veld aan de achterzijde"
+         data-caption="Van opzij ziet u hoe royaal en vrij het perceel ligt" data-label="Van opzij ziet u hoe royaal en vrij het perceel ligt">
+        <img src="img/thumb/buiten-11.jpg" alt="Van opzij ziet u hoe royaal en vrij het perceel ligt"
              width="2000" height="1335" loading="lazy" decoding="async">
       </a>
       <a href="img/full/buiten-13.jpg" data-f="buiten"
@@ -446,12 +422,6 @@
          data-pswp-width="2000" data-pswp-height="1335"
          data-caption="Ligbad met handdouche in de badkamer boven" data-label="Ligbad met handdouche in de badkamer boven">
         <img src="img/thumb/badkamer-02.jpg" alt="Ligbad met handdouche in de badkamer boven"
-             width="2000" height="1335" loading="lazy" decoding="async">
-      </a>
-      <a href="img/full/badkamer-03.jpg" data-f="sanitair"
-         data-pswp-width="2000" data-pswp-height="1335"
-         data-caption="De ochtendzon valt binnen in de badkamer" data-label="De ochtendzon valt binnen in de badkamer">
-        <img src="img/thumb/badkamer-03.jpg" alt="De ochtendzon valt binnen in de badkamer"
              width="2000" height="1335" loading="lazy" decoding="async">
       </a>
       <a href="img/full/badkamer-04.jpg" data-f="sanitair"
@@ -727,35 +697,6 @@ addEventListener('click', e => { if (!bar.contains(e.target)) menu(false); });
 
 addEventListener('scroll', () => bar.classList.toggle('stuck', scrollY > 40), {passive:true});
 
-
-// ── Delen: het deelvenster van het toestel (WhatsApp, mail, socials) ──
-// Valt terug op de link kopiëren waar dat venster niet bestaat, zoals op
-// de meeste desktopbrowsers.
-const deel = document.getElementById('deel');
-const melding = document.createElement('span');
-melding.className = 'deel-melding';
-melding.setAttribute('role', 'status');
-deel.after(melding);
-
-const zeg = t => {
-  melding.textContent = t;
-  clearTimeout(zeg.tijd);
-  zeg.tijd = setTimeout(() => melding.textContent = '', 2600);
-};
-
-deel.onclick = async () => {
-  const data = {
-    title: document.title,
-    text: document.querySelector('meta[name="description"]')?.content || '',
-    url: location.href,
-  };
-  if (navigator.share) {
-    try { return await navigator.share(data); }
-    catch (e) { if (e.name === 'AbortError') return; }   // bezoeker brak af
-  }
-  try { await navigator.clipboard.writeText(data.url); zeg('Link gekopieerd'); }
-  catch { zeg('Kopieer de link uit de adresbalk'); }
-};
 
 // ── Galerijfilter ──
 const tiles = [...document.querySelectorAll('#grid a')];

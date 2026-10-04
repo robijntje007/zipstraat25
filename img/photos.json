@@ -161,13 +161,6 @@
   "h": 1335
  },
  {
-  "file": "badkamer-03.jpg",
-  "filter": "sanitair",
-  "label": "Badkamer boven",
-  "w": 2000,
-  "h": 1335
- },
- {
   "file": "badkamer-04.jpg",
   "filter": "sanitair",
   "label": "Badkamer boven",
@@ -329,13 +322,6 @@
   "h": 1335
  },
  {
-  "file": "buiten-05.jpg",
-  "filter": "buiten",
-  "label": "Tuin & buiten",
-  "w": 2000,
-  "h": 1335
- },
- {
   "file": "buiten-06.jpg",
   "filter": "buiten",
   "label": "Tuin & buiten",
@@ -357,13 +343,6 @@
   "h": 1335
  },
  {
-  "file": "buiten-09.jpg",
-  "filter": "buiten",
-  "label": "Tuin & buiten",
-  "w": 2000,
-  "h": 1335
- },
- {
   "file": "buiten-10.jpg",
   "filter": "buiten",
   "label": "Tuin & buiten",
@@ -372,13 +351,6 @@
  },
  {
   "file": "buiten-11.jpg",
-  "filter": "buiten",
-  "label": "Tuin & buiten",
-  "w": 2000,
-  "h": 1335
- },
- {
-  "file": "buiten-12.jpg",
   "filter": "buiten",
   "label": "Tuin & buiten",
   "w": 2000,

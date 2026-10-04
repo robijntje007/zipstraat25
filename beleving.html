@@ -72,12 +72,6 @@ blockquote footer{border:0;padding:0;margin-top:1.2rem;font:500 .8rem/1 Inter,sa
       <a href="beleving.html" aria-current="page">Beleving</a>
     </nav>
     <button class="icon-btn" id="theme" aria-label="Wissel tussen licht en donker thema">🌙</button>
-    <button class="icon-btn" id="deel" aria-label="Deze pagina delen" title="Delen">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/>
-        <path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>
-      </svg>
-    </button>
     <button class="menu-btn" id="menu" aria-label="Menu openen" aria-expanded="false" aria-controls="hoofdmenu"><span></span></button>
   </div>
 </header>
@@ -221,35 +215,6 @@ btn.onclick = () => {
   try { localStorage.setItem('theme', t); } catch {}
 };
 
-
-// ── Delen: het deelvenster van het toestel (WhatsApp, mail, socials) ──
-// Valt terug op de link kopiëren waar dat venster niet bestaat, zoals op
-// de meeste desktopbrowsers.
-const deel = document.getElementById('deel');
-const melding = document.createElement('span');
-melding.className = 'deel-melding';
-melding.setAttribute('role', 'status');
-deel.after(melding);
-
-const zeg = t => {
-  melding.textContent = t;
-  clearTimeout(zeg.tijd);
-  zeg.tijd = setTimeout(() => melding.textContent = '', 2600);
-};
-
-deel.onclick = async () => {
-  const data = {
-    title: document.title,
-    text: document.querySelector('meta[name="description"]')?.content || '',
-    url: location.href,
-  };
-  if (navigator.share) {
-    try { return await navigator.share(data); }
-    catch (e) { if (e.name === 'AbortError') return; }   // bezoeker brak af
-  }
-  try { await navigator.clipboard.writeText(data.url); zeg('Link gekopieerd'); }
-  catch { zeg('Kopieer de link uit de adresbalk'); }
-};
 
 // ── Mobiel menu ──
 const bar = document.getElementById('top-bar'), menuBtn = document.getElementById('menu');
