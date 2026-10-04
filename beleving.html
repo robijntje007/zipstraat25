@@ -66,12 +66,18 @@ blockquote footer{border:0;padding:0;margin-top:1.2rem;font:500 .8rem/1 Inter,sa
       <a href="index.html#energie">Energie</a>
       <a href="index.html#galerij">Galerij</a>
       <a href="index.html#video">Video</a>
-      <a href="beleving.html" aria-current="page">Beleving</a>
       <a href="index.html#info">Info</a>
       <a href="index.html#ligging">Ligging</a>
       <a href="index.html#contact">Contact</a>
+      <a href="beleving.html" aria-current="page">Beleving</a>
     </nav>
     <button class="icon-btn" id="theme" aria-label="Wissel tussen licht en donker thema">🌙</button>
+    <button class="icon-btn" id="deel" aria-label="Deze pagina delen" title="Delen">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/>
+        <path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>
+      </svg>
+    </button>
     <button class="menu-btn" id="menu" aria-label="Menu openen" aria-expanded="false" aria-controls="hoofdmenu"><span></span></button>
   </div>
 </header>
@@ -127,15 +133,42 @@ blockquote footer{border:0;padding:0;margin-top:1.2rem;font:500 .8rem/1 Inter,sa
     <div class="chapter reveal">
       <div>
         <span class="eyebrow">De winteravonden</span>
-        <h2>De zitput en de sauna</h2>
+        <h2>De zitput als middelpunt</h2>
         <p>
           Als het buiten kort en donker wordt, verhuist het leven naar binnen. De
           verlaagde zitput is precies groot genoeg om samen te zijn en klein genoeg om
-          geborgen te voelen. En na een koude dag is er nog altijd de sauna — op tien
-          stappen van de woonkamer, zonder afspraak.
+          geborgen te voelen.
         </p>
       </div>
       <img src="img/full/living-03.jpg" alt="De verlaagde zitput in de leefruimte met granieten trap" width="2000" height="1335" loading="lazy">
+    </div>
+
+    <div class="chapter flip reveal">
+      <div>
+        <span class="eyebrow">Een eigen sauna</span>
+        <h2>Op tien stappen van de woonkamer</h2>
+        <p>
+          Een sauna in huis is minder luxe dan gemak. Geen afspraak, geen rit door de
+          regen, geen beurtenkaart — je loopt gewoon de gang door. Massief hout, banken
+          op twee hoogtes, en een kwartier later is een koude dag vergeten. In de winter
+          gebruiken we hem bijna wekelijks; in de zomer staat hij geduldig te wachten.
+        </p>
+      </div>
+      <img src="img/full/sauna-04.jpg" alt="De privésauna in massief hout, met banken op twee hoogtes" width="1335" height="2000" loading="lazy">
+    </div>
+
+    <div class="chapter reveal">
+      <div>
+        <span class="eyebrow">Paarden als buren</span>
+        <h2>Achteraan houdt het gewoon op</h2>
+        <p>
+          Waar bij de meeste huizen de tuin van de buren begint, begint hier een weide.
+          Geen ramen die op de onze uitkijken, geen schutting die het zicht wegneemt —
+          alleen gras, een paar paarden en de lucht erboven. Vanaf het terras kijk je er
+          zo overheen, en in de zomer is dat het decor bij elke maaltijd buiten.
+        </p>
+      </div>
+      <img src="img/full/buiten-16.jpg" alt="De tuin grenst achteraan aan een weide waar paarden grazen" width="2000" height="1335" loading="lazy">
     </div>
 
     <div class="chapter flip reveal">
@@ -186,6 +219,36 @@ btn.onclick = () => {
   const t = root.dataset.theme === 'dark' ? 'light' : 'dark';
   paint(t);
   try { localStorage.setItem('theme', t); } catch {}
+};
+
+
+// ── Delen: het deelvenster van het toestel (WhatsApp, mail, socials) ──
+// Valt terug op de link kopiëren waar dat venster niet bestaat, zoals op
+// de meeste desktopbrowsers.
+const deel = document.getElementById('deel');
+const melding = document.createElement('span');
+melding.className = 'deel-melding';
+melding.setAttribute('role', 'status');
+deel.after(melding);
+
+const zeg = t => {
+  melding.textContent = t;
+  clearTimeout(zeg.tijd);
+  zeg.tijd = setTimeout(() => melding.textContent = '', 2600);
+};
+
+deel.onclick = async () => {
+  const data = {
+    title: document.title,
+    text: document.querySelector('meta[name="description"]')?.content || '',
+    url: location.href,
+  };
+  if (navigator.share) {
+    try { return await navigator.share(data); }
+    catch (e) { if (e.name === 'AbortError') return; }   // bezoeker brak af
+  }
+  try { await navigator.clipboard.writeText(data.url); zeg('Link gekopieerd'); }
+  catch { zeg('Kopieer de link uit de adresbalk'); }
 };
 
 // ── Mobiel menu ──

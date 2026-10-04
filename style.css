@@ -12,11 +12,10 @@
   --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.45);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:5rem;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{
   margin:0;background:var(--bg);color:var(--text);
   font:400 clamp(1rem,.96rem + .2vw,1.08rem)/1.65 Inter,system-ui,sans-serif;
-  overflow-x:hidden;
 }
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.015em;margin:0}
 img{display:block;max-width:100%;height:auto}
@@ -29,6 +28,23 @@ section{padding:clamp(3.5rem,8vw,7rem) 0}
   text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;
 }
 .lede{color:var(--muted);font-size:1.08em;max-width:62ch}
+
+/* ── Achtergrond: een warme waas die met het scrollen meeschuift ──
+   Vaste laag achter de inhoud, zichtbaar in elke sectie zonder eigen
+   achtergrondkleur. Zonder scroll-timelines blijft hij gewoon stilstaan. */
+body::before{
+  content:"";position:fixed;inset:-25vh -10vw;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(55vw 45vh at 15% 10%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 68%),
+    radial-gradient(50vw 40vh at 88% 48%,color-mix(in srgb,var(--accent-soft) 14%,transparent),transparent 68%),
+    radial-gradient(60vw 45vh at 40% 92%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 70%);
+}
+@supports (animation-timeline:scroll(root)){
+  @media(prefers-reduced-motion:no-preference){
+    body::before{animation:waas linear both;animation-timeline:scroll(root)}
+    @keyframes waas{to{translate:-4vw -22vh;scale:1.35}}
+  }
+}
 
 /* ── Navigatie ── */
 header{
@@ -70,7 +86,7 @@ nav::-webkit-scrollbar{display:none}
   header .wrap{gap:.75rem}
   /* gespiegeld t.o.v. desktop: knoppen links, naam rechts */
   .menu-btn{order:-2}
-  #theme{order:-1}
+  #theme,#deel{order:-1}
   .brand{order:0;font-size:.98rem;margin:0 0 0 auto}
 
   /* Hamburger die bij openen naar een kruis kantelt */
@@ -93,8 +109,9 @@ nav::-webkit-scrollbar{display:none}
 
   /* Het paneel zelf */
   nav{
-    position:absolute;top:calc(100% - .35rem);right:1rem;left:1rem;
-    display:grid;gap:.1rem;padding:.5rem;overflow:visible;
+    position:absolute;top:calc(100% - .35rem);left:1rem;
+    width:max-content;min-width:12.5rem;max-width:calc(100% - 2rem);
+    display:grid;gap:.1rem;padding:.45rem;overflow:visible;
     background:var(--bg);
     border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
     opacity:0;visibility:hidden;transform:translateY(-.6rem) scale(.97);transform-origin:top left;
@@ -104,10 +121,10 @@ nav::-webkit-scrollbar{display:none}
 
   nav a,header:not(.stuck) nav a{
     display:flex;align-items:center;gap:.75rem;color:var(--text);
-    padding:.62rem .7rem;border:0;border-radius:9px;font-size:.95rem;background:none;
+    padding:.6rem .8rem;border:0;border-radius:9px;font-size:1.02rem;background:none;
   }
   nav a::before{
-    content:"";width:1.15rem;height:1.15rem;flex:none;background:currentColor;opacity:.5;
+    content:"";width:1.2rem;height:1.2rem;flex:none;background:currentColor;opacity:.5;
     -webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat;
   }
   nav a:active{background:var(--surface)}
@@ -148,6 +165,19 @@ nav a{
 }
 nav a:hover{color:var(--text);border-color:var(--accent)}
 nav a[aria-current="page"]{color:var(--text);border-color:var(--accent)}
+/* Streepje dat onder het menu meeschuift met de sectie waar je bent.
+   Positie en breedte komen uit het script; hier staat alleen hoe het eruitziet.
+   Geen transition: het volgt het scrollen, niet een klok. */
+.streep{display:none}
+@media(min-width:900px){
+  nav{position:relative}
+  .streep{
+    display:block;position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--accent);opacity:0;pointer-events:none;
+  }
+  header:not(.stuck) .streep{background:#fff}
+}
+
 .icon-btn{
   background:none;border:1px solid var(--line);border-radius:50%;
   width:2.3rem;height:2.3rem;display:grid;place-items:center;
@@ -299,6 +329,15 @@ h2{font-size:clamp(1.7rem,1.2rem + 1.9vw,2.6rem);max-width:18ch;text-wrap:balanc
 }
 .contact-card b{font-weight:500;font-size:1rem;word-break:break-word}
 
+/* Bevestiging na het kopiëren van de link; leeg = onzichtbaar. */
+.deel-melding{
+  position:fixed;left:50%;bottom:1.5rem;translate:-50% 0;z-index:60;
+  padding:.65rem 1.1rem;border-radius:100px;box-shadow:var(--shadow);
+  background:var(--text);color:var(--bg);
+  font:500 .82rem/1 Inter,sans-serif;white-space:nowrap;pointer-events:none;
+}
+.deel-melding:empty{display:none}
+
 footer{
   border-top:1px solid var(--line);padding:2.5rem 0;
   font-size:.84rem;color:var(--muted);
@@ -335,3 +374,33 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-
   border:2px solid rgba(255,255,255,.7);font-size:1.3rem;padding-left:.25rem;
 }
 .video-soon__body p{margin:0;max-width:34ch;font-size:1.02rem;color:rgba(255,255,255,.92)}
+
+/* ── Beweging tijdens het scrollen (alleen desktop) ──
+   De fotokolom naast een lange tekst bleef halverwege leeg staan; de foto
+   blijft nu meelopen zolang je leest. */
+@media(min-width:900px) and (prefers-reduced-motion:no-preference){
+  .split img{position:sticky;top:5.5rem;align-self:start}
+}
+
+/* Scroll-gedreven animatie is pure CSS: browsers zonder scroll-timelines
+   (Firefox vandaag) tonen de pagina gewoon zoals ze was. */
+@supports (animation-timeline:view()){
+  @media(min-width:900px) and (prefers-reduced-motion:no-preference){
+    /* Hero: het beeld schuift langzamer weg dan de tekst erboven */
+    #hero,.story-hero{overflow:hidden}
+    #hero img,.story-hero img{
+      height:122%;animation:hero-pan linear both;
+      animation-timeline:scroll(root);animation-range:0 100vh;
+    }
+    @keyframes hero-pan{to{translate:0 -16%;scale:1.05}}
+    .hero-inner,.story-hero .wrap{
+      animation:hero-lift linear both;
+      animation-timeline:scroll(root);animation-range:0 80vh;
+    }
+    @keyframes hero-lift{to{translate:0 -2.5rem;opacity:.25}}
+
+    /* Verhaalfoto's drijven tegen de leesrichting in */
+    .chapter img{animation:drift linear both;animation-timeline:view();animation-range:cover}
+    @keyframes drift{from{translate:0 2.5rem}to{translate:0 -2.5rem}}
+  }
+}
