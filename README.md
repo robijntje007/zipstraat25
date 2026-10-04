@@ -22,15 +22,17 @@ Website voor de verkoop van de woning **Zipstraat 25, 3900 Pelt (België)**.
 
 ## Nog aan te vullen
 
-Zoek in `index.html` op het woord **`nog aan te vullen`** en vervang elke waarde.
+1. **EPC en stedenbouwkundige info** — in de sectie `INFO` van `index.html` staat bij
+   twaalf velden `In aanvraag`. In Vlaanderen is het wettelijk verplicht om bij
+   publiciteit voor de verkoop minstens het **EPC-label** en de **energiescore
+   (kWh/m²jaar)** te vermelden. Vervang de waarden zodra de attesten binnen zijn.
+2. **Videorondleiding** — de sectie `VIDEO` toont nu een tijdelijke placeholder
+   (`dQw4w9WgXcQ`). Vervang dat ID door het echte YouTube-ID vóór de woning
+   publiek gedeeld wordt.
 
-1. **Vraagprijs** — in de sectie `KERNCIJFERS` staat `Op aanvraag`. Vervang door bv. `€ 395.000`.
-2. **EPC en stedenbouwkundige info** — in de sectie `INFO`. In Vlaanderen is het
-   wettelijk verplicht om bij publiciteit voor de verkoop minstens het **EPC-label**
-   en de **energiescore (kWh/m²jaar)** te vermelden.
-3. **Videorondleiding** — bovenaan de sectie `VIDEO` staat een uitgecommentarieerd blok.
-   Vervang `VIDEO_ID` door het ID uit de YouTube-link (het stuk na `v=`) en verwijder
-   de twee commentaarregels eromheen.
+De vraagprijs (€ 420.000) staat ingevuld in de hero, de kerncijfers, de social
+preview en de structured data. Wijzigt de prijs, zoek dan op `420` in `index.html`
+en pas alle vier de plekken aan.
 
 ## Bezoekers tellen
 
