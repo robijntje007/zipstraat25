@@ -76,20 +76,31 @@ header.stuck{
 header:not(.stuck) .brand{color:#fff}
 header:not(.stuck) nav a{color:rgba(255,255,255,.85);border-bottom-color:transparent}
 header:not(.stuck) nav a:hover{color:#fff;border-bottom-color:#fff}
-header:not(.stuck) nav a[aria-current="page"]{color:#fff;border-bottom-color:#fff}
+header:not(.stuck) nav a[aria-current]{color:#fff;border-bottom-color:#fff}
 header:not(.stuck) .icon-btn{color:#fff;border-color:rgba(255,255,255,.5)}
 header:not(.stuck) .icon-btn:hover{border-color:#fff}
 header .wrap{display:flex;align-items:center;gap:1.5rem}
 .brand{
   font-family:Fraunces,serif;font-weight:600;font-size:1.05rem;
   text-decoration:none;letter-spacing:-.01em;margin-right:auto;
+  display:flex;align-items:center;gap:.55rem;
 }
+/* Het huismerk: zelfde lijnen als het favicon, maar het volgt de tekstkleur,
+   zodat het boven de herofoto wit is en daarna meekleurt met het thema. */
+.brand .merk{width:1.55rem;height:1.55rem;flex:none}
 nav{
   display:flex;gap:1.05rem;min-width:0;
   overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
 }
 nav::-webkit-scrollbar{display:none}
 @media(min-width:1120px){nav{gap:1.6rem}}
+
+nav a{
+  text-decoration:none;font-size:.95rem;font-weight:500;color:var(--muted);
+  padding:.2rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;flex:none;
+}
+nav a:hover{color:var(--text);border-color:var(--accent)}
+nav a[aria-current]{color:var(--text);border-color:var(--accent)}
 
 /* Onder 900px verdwijnt het menu achter één knop en klapt het open als paneel.
    De iconen staan als CSS-masker op de links, zodat de HTML schoon blijft. */
@@ -141,10 +152,10 @@ nav::-webkit-scrollbar{display:none}
     -webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat;
   }
   nav a:active{background:var(--surface)}
-  nav a[aria-current="page"],header:not(.stuck) nav a[aria-current="page"]{
+  nav a[aria-current],header:not(.stuck) nav a[aria-current]{
     background:var(--surface);color:var(--accent);border:0;
   }
-  nav a[aria-current="page"]::before{opacity:1}
+  nav a[aria-current]::before{opacity:1}
 
   /* De regels komen kort na elkaar binnen */
   header.open nav a{animation:menu-rij .3s cubic-bezier(.2,.9,.3,1) backwards}
@@ -171,24 +182,6 @@ nav::-webkit-scrollbar{display:none}
 @media(prefers-reduced-motion:reduce){
   nav,.menu-btn span,.menu-btn span::before,.menu-btn span::after{transition-duration:.01s}
   header.open nav a{animation:none}
-}
-nav a{
-  text-decoration:none;font-size:.86rem;font-weight:500;color:var(--muted);
-  padding:.2rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;flex:none;
-}
-nav a:hover{color:var(--text);border-color:var(--accent)}
-nav a[aria-current="page"]{color:var(--text);border-color:var(--accent)}
-/* Streepje dat onder het menu meeschuift met de sectie waar je bent.
-   Positie en breedte komen uit het script; hier staat alleen hoe het eruitziet.
-   Geen transition: het volgt het scrollen, niet een klok. */
-.streep{display:none}
-@media(min-width:900px){
-  nav{position:relative}
-  .streep{
-    display:block;position:absolute;left:0;bottom:0;height:1px;width:0;
-    background:var(--accent);opacity:0;pointer-events:none;
-  }
-  header:not(.stuck) .streep{background:#fff}
 }
 
 .icon-btn{

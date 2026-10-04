@@ -19,7 +19,8 @@
 <meta property="og:image:height" content="1335">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/logo.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +33,7 @@
 
 <header id="top-bar">
   <div class="wrap">
-    <a class="brand" href="#hero">Zipstraat&nbsp;25</a>
+    <a class="brand" href="#hero"><svg class="merk" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 23.5 24 3.5l20.5 20"/><path d="M32 11V7h5v9"/><path d="M9.5 21v22h29V21"/><path d="M14.5 43V32h9v11"/><path d="M28.5 28h6v6.5h-6z"/></svg><span>Zipstraat&nbsp;25</span></a>
     <nav id="hoofdmenu">
       <a href="#woning">De woning</a>
       <a href="#energie">Energie</a>
@@ -713,58 +714,26 @@ const io = new IntersectionObserver((es, o) => es.forEach(e => {
 }), {rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ── Streepje onder het menu volgt de sectie waar je bent ──
-// Het schuift mee tijdens het scrollen: de laatste ZONE pixels van een sectie
-// steekt het over naar het volgende item, met een dip in de dekking.
+// ── Menu-item van de zichtbare sectie krijgt het streepje ──
+// Zelfde markering als op beleving.html: aria-current, gestyled via style.css.
 const spy = [...bar.querySelectorAll('nav a[href^="#"]')]
   .map(a => ({a, sec: document.getElementById(a.hash.slice(1))}))
   .filter(o => o.sec);
 
-if (spy.length > 1) {
-  const streep = document.createElement('span');
-  streep.className = 'streep';
-  streep.setAttribute('aria-hidden', 'true');
-  bar.querySelector('nav').append(streep);
-
-  const ZONE = 220;                                  // overgang in pixels
-  const stil = matchMedia('(prefers-reduced-motion: reduce)');
-  const klem = v => Math.min(1, Math.max(0, v));
-  let wacht = false;
-
-  const teken = () => {
-    wacht = false;
-    if (innerWidth < 900) return;
-    const lijn = bar.offsetHeight;                   // peillijn: onderkant van de balk
-    const rek = document.documentElement.scrollHeight - innerHeight;
-    // De laatste sectie haalt de peillijn nooit, dus kappen we haar aanzetpunt
-    // af op het einde van de pagina: het streepje steekt dan over tijdens de
-    // laatste schermvullingen.
-    const boven = i => Math.min(scrollY + spy[i].sec.getBoundingClientRect().top - lijn, rek) - scrollY;
-
-    let i = -1;
-    while (i + 1 < spy.length && boven(i + 1) <= 0) i++;
-
-    let t, zicht;
-    if (i < 0) {                                     // nog in de hero: komt aanzetten
-      i = 0; t = 0; zicht = klem(1 - boven(0) / ZONE);
-    } else {
-      t = i + 1 < spy.length ? klem(1 - boven(i + 1) / ZONE) : 0;
-      zicht = 1 - .55 * Math.sin(Math.PI * t);       // dipt weg tijdens de oversteek
-    }
-    if (stil.matches) { t = t < .5 ? 0 : 1; zicht = Math.round(zicht); }
-
-    const van = spy[i].a, naar = spy[Math.min(i + 1, spy.length - 1)].a;
-    streep.style.translate = van.offsetLeft + (naar.offsetLeft - van.offsetLeft) * t + 'px';
-    streep.style.width = van.offsetWidth + (naar.offsetWidth - van.offsetWidth) * t + 'px';
-    streep.style.opacity = zicht;
-  };
-
-  const plan = () => { if (!wacht) { wacht = true; requestAnimationFrame(teken); } };
-  addEventListener('scroll', plan, {passive:true});
-  addEventListener('resize', plan);
-  addEventListener('load', plan);                    // lettertypes en foto's verschuiven de secties
-  teken();
-}
+const markeer = () => {
+  // Peillijn: dezelfde hoogte waarop een #-link een sectie neerzet
+  // (scroll-padding-top in style.css), anders loopt de markering achter.
+  const lijn = parseFloat(getComputedStyle(root).scrollPaddingTop) || bar.offsetHeight;
+  let huidig = null;
+  for (const o of spy) if (o.sec.getBoundingClientRect().top <= lijn + 1) huidig = o.a;
+  for (const o of spy) {
+    if (o.a === huidig) o.a.setAttribute('aria-current', 'true');
+    else o.a.removeAttribute('aria-current');
+  }
+};
+addEventListener('scroll', markeer, {passive:true});
+addEventListener('load', markeer);                 // lettertypes en foto's verschuiven de secties
+markeer();
 </script>
 
 <!-- ══ BEZOEKERSTELLER ══
