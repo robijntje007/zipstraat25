@@ -29,20 +29,33 @@ section{padding:clamp(3.5rem,8vw,7rem) 0}
 }
 .lede{color:var(--muted);font-size:1.08em;max-width:62ch}
 
-/* ── Achtergrond: een warme waas die met het scrollen meeschuift ──
-   Vaste laag achter de inhoud, zichtbaar in elke sectie zonder eigen
-   achtergrondkleur. Zonder scroll-timelines blijft hij gewoon stilstaan. */
+/* ── Achtergrond: twee warme waaslagen die met het scrollen meeschuiven ──
+   Vaste lagen achter de inhoud, zichtbaar in elke sectie zonder eigen
+   achtergrondkleur. Ze bewegen tegen elkaar in, dat geeft diepte zonder
+   dat het opvalt. Zonder scroll-timelines blijven ze gewoon stilstaan. */
+body::before,
+body::after{
+  content:"";position:fixed;inset:-30vh -15vw;z-index:-1;pointer-events:none;
+}
 body::before{
-  content:"";position:fixed;inset:-25vh -10vw;z-index:-1;pointer-events:none;
   background:
     radial-gradient(55vw 45vh at 15% 10%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 68%),
-    radial-gradient(50vw 40vh at 88% 48%,color-mix(in srgb,var(--accent-soft) 14%,transparent),transparent 68%),
     radial-gradient(60vw 45vh at 40% 92%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 70%);
+}
+body::after{
+  background:
+    radial-gradient(50vw 40vh at 88% 48%,color-mix(in srgb,var(--accent-soft) 14%,transparent),transparent 68%),
+    radial-gradient(45vw 35vh at 68% 4%,color-mix(in srgb,var(--accent-soft) 9%,transparent),transparent 72%);
 }
 @supports (animation-timeline:scroll(root)){
   @media(prefers-reduced-motion:no-preference){
-    body::before{animation:waas linear both;animation-timeline:scroll(root)}
-    @keyframes waas{to{translate:-4vw -22vh;scale:1.35}}
+    body::before,body::after{animation:linear both;animation-timeline:scroll(root)}
+    body::before{animation-name:waas-diep}
+    body::after{animation-name:waas-voor}
+    /* de verre laag schuift mee omhoog en komt langzaam dichterbij */
+    @keyframes waas-diep{to{translate:-3vw -18vh;scale:1.22}}
+    /* de voorste laag de andere kant op: zo kruisen de vlekken elkaar */
+    @keyframes waas-voor{to{translate:4vw 9vh;scale:1.08}}
   }
 }
 
