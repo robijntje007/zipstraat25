@@ -1,797 +1,633 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huis te koop — Zipstraat 25</title>
-    <meta name="description" content="Woning te koop — Zipstraat 25. Bekijk foto's, video's en neem contact op.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zipstraat 25, Pelt — ruime gezinswoning te koop</title>
+<meta name="description" content="Karaktervolle, goed onderhouden gezinswoning te koop in Pelt. 4 slaapkamers, 175 m² bewoonbaar, ruime tuin met koivijver, overdekt terras, sauna, garage en zonnepanelen.">
+<link rel="canonical" href="https://zipstraat25.be/">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Social preview: bepaalt hoe de link eruitziet op WhatsApp, Facebook en in mail -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:url" content="https://zipstraat25.be/">
+<meta property="og:site_name" content="Zipstraat 25">
+<meta property="og:title" content="Zipstraat 25, Pelt — ruime gezinswoning te koop">
+<meta property="og:description" content="4 slaapkamers, 175 m² bewoonbaar, ruime tuin met koivijver, overdekt terras, sauna en zonnepanelen. Rustig gelegen in Pelt.">
+<meta property="og:image" content="https://zipstraat25.be/img/full/buiten-10.jpg">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="1335">
+<meta name="twitter:card" content="summary_large_image">
 
-    <!-- Bootstrap 5.3 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- GLightbox -->
-    <link href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
 
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #7c8a7c; /* Muted Sage Green */
-            --light-bg: #fbfbfb;
-            --text-muted: #6c757d;
-            --bg-color: #ffffff;
-            --border-color: #eeeeee;
-            --nav-bg: 255, 255, 255;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" rel="stylesheet">
 
-        [data-theme="dark"] {
-            --primary: #f8f9fa;
-            --accent: #9fb19f; /* Lighter Sage for dark mode */
-            --light-bg: #222222;
-            --text-muted: #adb5bd;
-            --bg-color: #1a1a1a;
-            --border-color: #333333;
-            --nav-bg: 26, 26, 26;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--primary);
-            overflow-x: hidden;
-            background-color: var(--bg-color);
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-
-        .text-muted { color: var(--text-muted) !important; }
-
-        h1, h2, h3, .navbar-brand {
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: -0.02em;
-        }
-
-        /* ── Navbar ── */
-        .navbar {
-            padding: 1.5rem 0;
-            transition: var(--transition);
-            background: transparent;
-        }
-        .navbar.scrolled {
-            padding: 0.8rem 0;
-            background: rgba(var(--nav-bg), 0.9);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
-        .navbar-brand { font-weight: 700; color: var(--primary) !important; font-size: 1.4rem; }
-        .nav-link { font-weight: 500; color: var(--primary) !important; opacity: 0.7; transition: var(--transition); }
-        .nav-link:hover { opacity: 1; }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-        .theme-toggle:hover { opacity: 1; }
-        
-        /* ── Hero ── */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            background: #eee;
-        }
-        .hero-img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 110%; /* Extra height for parallax */
-            background-image: url('google maps 1.png');
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(var(--nav-bg),0.2) 0%, rgba(var(--nav-bg),0.6) 100%);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-        }
-        .hero-tagline {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            margin-bottom: 1.5rem;
-            display: block;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-        .btn-primary-custom {
-            background: var(--primary);
-            color: var(--bg-color);
-            padding: 1rem 2.5rem;
-            border-radius: 0;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.8rem;
-            border: none;
-            transition: var(--transition);
-        }
-        .btn-primary-custom:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            color: #fff;
-        }
-
-        /* ── Sections ── */
-        section { padding: 100px 0; }
-        .section-header { margin-bottom: 60px; }
-        .section-subtitle {
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .section-title { font-weight: 600; font-size: 2.5rem; }
-
-        /* ── Specs ── */
-        .spec-card {
-            padding: 40px;
-            background: var(--light-bg);
-            border: 1px solid var(--border-color);
-            height: 100%;
-            transition: var(--transition);
-        }
-        .spec-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-        .spec-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; display: block; }
-        .spec-value { font-weight: 700; font-size: 1.5rem; margin-bottom: 5px; }
-        .spec-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
-
-        /* ── Gallery ── */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            background: var(--light-bg);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .gallery-item:hover img { transform: scale(1.08); }
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.4); /* Darker overlay for better contrast */
-            opacity: 0;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 600;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Added text shadow for extra clarity */
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 20px;
-            text-align: center;
-        }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-        /* Custom heights/widths for grid */
-        .gi-large { grid-column: span 8; grid-row: span 2; height: 600px; }
-        .gi-med { grid-column: span 4; grid-row: span 1; height: 290px; }
-        .gi-wide { grid-column: span 6; height: 400px; }
-        .gi-tall { grid-column: span 4; grid-row: span 2; height: 600px; }
-        .gi-small { grid-column: span 3; height: 290px; }
-
-        @media (max-width: 992px) {
-            .gi-large, .gi-med, .gi-wide, .gi-tall, .gi-small { grid-column: span 12; height: 400px; }
-        }
-
-        /* ── Contact ── */
-        .contact-info-block { margin-bottom: 30px; }
-        .contact-info-label { font-weight: 700; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 5px; }
-        .contact-info-value { font-size: 1.1rem; }
-        .contact-info-value a { color: inherit; text-decoration: none; transition: var(--transition); }
-        .contact-info-value a:hover { color: var(--accent); }
-
-        .form-control {
-            border-radius: 0;
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            background: var(--light-bg);
-            color: var(--primary);
-        }
-        .form-control:focus {
-            box-shadow: none;
-            border-color: var(--accent);
-            background: var(--light-bg);
-            color: var(--primary);
-        }
-        .form-control::placeholder { color: var(--text-muted); }
-
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .bg-light { background-color: var(--light-bg) !important; }
-
-        /* Gallery Filter Buttons Readability */
-        .filter-btn {
-            color: var(--primary) !important;
-            border-color: var(--border-color) !important;
-            transition: var(--transition);
-        }
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary) !important;
-            color: var(--bg-color) !important;
-            border-color: var(--primary) !important;
-        }
-
-        /* Map Dark Mode Filter */
-        #locatie iframe {
-            transition: filter 0.6s ease;
-        }
-        [data-theme="dark"] #locatie iframe {
-            filter: invert(90%) hue-rotate(180deg) brightness(0.8) contrast(1.1);
-        }
-
-        /* GSAP Hidden items */
-        .reveal { opacity: 0; transform: translateY(30px); }
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">ZIPSTRAAT 25</a>
-        
-        <div class="d-flex align-items-center gap-3 d-lg-none ms-auto me-2">
-            <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle dark mode">
-                <i class="bi bi-moon-stars"></i>
-            </button>
-        </div>
+<header id="top-bar">
+  <div class="wrap">
+    <a class="brand" href="#hero">Zipstraat&nbsp;25</a>
+    <nav>
+      <a href="#woning">De woning</a>
+      <a href="#galerij">Galerij</a>
+      <a href="beleving.html">Beleving</a>
+      <a href="#info">Info</a>
+      <a href="#ligging">Ligging</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="icon-btn" id="theme" aria-label="Wissel tussen licht en donker thema">🌙</button>
+  </div>
+</header>
 
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto gap-lg-4 align-items-center">
-                <li class="nav-item"><a class="nav-link" href="beleving.html">Beleving</a></li>
-                <li class="nav-item"><a class="nav-link" href="#specs">Kenmerken</a></li>
-                <li class="nav-item"><a class="nav-link" href="#fotos">Galerij</a></li>
-                <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
-                <li class="nav-item"><a class="nav-link" href="#locatie">Locatie</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item d-none d-lg-block">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="bi bi-moon-stars"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <img src="img/full/buiten-10.jpg" alt="Vooraanzicht van de woning Zipstraat 25 in Pelt, met markante puntgevel en ingebouwde garage" width="2000" height="1335" fetchpriority="high">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Te koop · Pelt, Limburg</span>
+    <h1>Ruimte, rust en groen op een royaal perceel</h1>
+    <p class="hero-sub">
+      Een karaktervolle, zorgvuldig onderhouden gezinswoning waar binnen en buiten
+      naadloos in elkaar overlopen — met tuin, koivijver, overdekt terras en sauna.
+    </p>
+    <div class="hero-facts">
+      <div><b>4</b> slaapkamers</div>
+      <div><b>175 m²</b> bewoonbaar</div>
+      <div><b>2</b> badkamers</div>
+      <div><b>Zonnepanelen</b> &amp; airco</div>
     </div>
-</nav>
-
-<section id="hero" class="p-0">
-    <div class="hero-img"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content container">
-        <span class="hero-tagline reveal">Exclusief Vastgoed</span>
-        <h1 class="hero-title reveal">Architecturaal wonen in het hart van de stad</h1>
-        <div class="reveal">
-            <a href="#fotos" class="btn btn-primary-custom mt-3">Bekijk de rondleiding</a>
-        </div>
+    <div class="cta-row">
+      <a class="btn btn-fill" href="#galerij">Bekijk de woning</a>
+      <a class="btn btn-ghost" href="#contact">Plan een bezoek</a>
     </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">↓</div>
 </section>
 
-<section id="specs">
-    <div class="container">
-        <div class="section-header text-center reveal">
-            <span class="section-subtitle">Details</span>
-            <h2 class="section-title">De Woning in Cijfers</h2>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-3 col-6 reveal">
-                <div class="spec-card text-center">
-                    <i class="bi bi-arrows-fullscreen spec-icon"></i>
-                    <div class="spec-value">175 m²</div>
-                    <div class="spec-label">Bewoonbaar</div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6 reveal">
-                <div class="spec-card text-center">
-                    <i class="bi bi-door-open spec-icon"></i>
-                    <div class="spec-value">4</div>
-                    <div class="spec-label">Slaapkamers</div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6 reveal">
-                <div class="spec-card text-center">
-                    <i class="bi bi-droplet spec-icon"></i>
-                    <div class="spec-value">2</div>
-                    <div class="spec-label">Badkamers</div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6 reveal">
-                <div class="spec-card text-center">
-                    <i class="bi bi-moisture spec-icon"></i>
-                    <div class="spec-value">Ja</div>
-                    <div class="spec-label">Sauna</div>
-                </div>
-            </div>
-        </div>
+<!-- ══ KERNCIJFERS ══ -->
+<section id="kerncijfers">
+  <div class="wrap">
+    <div class="facts reveal">
+      <div class="fact"><span>⌂</span><b>175 m²</b><small>Bewoonbaar</small></div>
+      <div class="fact"><span>⌾</span><b>4</b><small>Slaapkamers</small></div>
+      <div class="fact"><span>❑</span><b>2</b><small>Badkamers</small></div>
+      <!-- Vervang hieronder "Op aanvraag" door de vraagprijs, bv. <b>€ 395.000</b> -->
+      <div class="fact"><span>€</span><b>Op aanvraag</b><small>Vraagprijs</small></div>
     </div>
+  </div>
 </section>
 
-<section id="beschrijving" class="bg-light">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0 reveal">
-                <span class="section-subtitle">Over de woning</span>
-                <h2 class="section-title mb-4">Licht, Ruimte & Comfort</h2>
-                <p class="lead text-muted mb-4">
-                    Deze unieke woning aan de Zipstraat 25 combineert moderne architectuur met warm wooncomfort. Van de sfeervolle zitput in de living tot de rustgevende patio en de luxueuze privésauna: elk detail is ontworpen om te genieten.
-                </p>
-                <div class="row g-3">
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="bi bi-check2-circle me-2 text-accent"></i> Vijver met waterval</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle me-2 text-accent"></i> Ruime Garage</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle me-2 text-accent"></i> Patio & Tuin</li>
-                        </ul>
-                    </div>
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="bi bi-check2-circle me-2 text-accent"></i> Kelder & Berging</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle me-2 text-accent"></i> Gezellige Zitput</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle me-2 text-accent"></i> Zonnepanelen</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 reveal">
-                <div class="ps-lg-5">
-                    <img src="google maps 2.png" alt="Achtergevel" class="img-fluid shadow-lg">
-                </div>
-            </div>
-        </div>
+<!-- ══ DE WONING ══ -->
+<section id="woning">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Over de woning</span>
+      <h2>Degelijk gebouwd, met karakter op elke verdieping</h2>
+      <p class="lede">
+        Deze woning is gebouwd met materialen die blijven duren: volle baksteen tot binnen in
+        de leefruimte, granieten werkbladen en een royale raampartij die het licht de hele
+        dag laat meeschuiven. De verlaagde zitput en de ronde bakstenen boog tussen keuken en
+        eetkamer geven de leefruimte een eigenheid die je in nieuwbouw zelden terugvindt.
+      </p>
+      <p class="lede" style="margin-top:1rem">
+        Alles is in goede staat en direct bewoonbaar — en tegelijk biedt het interieur een
+        stevige basis om stap voor stap naar uw eigen smaak af te werken.
+      </p>
+      <ul class="features">
+        <li>Verlaagde zitput in de leefruimte</li>
+        <li>Open keuken met kookeiland en graniet</li>
+        <li>Overdekt terras met zonnewering</li>
+        <li>Koivijver met brug en veiligheidsrooster</li>
+        <li>Privésauna</li>
+        <li>Ingebouwde garage met oprit</li>
+        <li>Zonnepanelen en zonneboiler</li>
+        <li>Airconditioning</li>
+        <li>Rolluiken rondom</li>
+        <li>Kelder en ruime berging</li>
+        <li>Apart washok met douche</li>
+        <li>Volledig omheinde tuin</li>
+      </ul>
+      <p style="margin-top:2rem">
+        <a class="btn btn-fill" href="beleving.html">Lees hoe het is om hier te wonen</a>
+      </p>
     </div>
+    <img class="reveal" src="img/full/living-03.jpg" alt="De leefruimte met verlaagde zitput en granieten trap naar de eetkamer" width="2000" height="1335" loading="lazy">
+  </div>
 </section>
 
-<section id="fotos">
-    <div class="container">
-        <div class="section-header text-center reveal">
-            <span class="section-subtitle">Verken de woning</span>
-            <h2 class="section-title">Uitgebreide Galerij</h2>
-        </div>
-
-        <!-- Filter Bar -->
-        <div class="d-flex flex-wrap justify-content-center gap-2 mb-5 reveal">
-            <button class="btn btn-outline-dark rounded-0 px-4 filter-btn active" data-filter="all">Alles</button>
-            <button class="btn btn-outline-dark rounded-0 px-4 filter-btn" data-filter="living">Living & Keuken</button>
-            <button class="btn btn-outline-dark rounded-0 px-4 filter-btn" data-filter="slaap">Slaapkamers</button>
-            <button class="btn btn-outline-dark rounded-0 px-4 filter-btn" data-filter="wellness">Sauna en badkamer</button>
-            <button class="btn btn-outline-dark rounded-0 px-4 filter-btn" data-filter="buiten">Tuin & Patio</button>
-            <button class="btn btn-outline-dark rounded-0 px-4 filter-btn" data-filter="overig">Overig</button>
-        </div>
-        
-        <div class="gallery-grid">
-            <!-- LIVING & ZITPUT -->
-            <div class="gallery-item gi-large filter-item living reveal">
-                <a href="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Living & Zitput">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Living">
-                    <div class="gallery-overlay">LIVING & ZITPUT (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-med filter-item living reveal">
-                <a href="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Zitput Detail">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Zitput">
-                    <div class="gallery-overlay">LIVING & ZITPUT (2/2)</div>
-                </a>
-            </div>
-
-            <!-- KEUKEN -->
-            <div class="gallery-item gi-med filter-item living reveal">
-                <a href="https://images.unsplash.com/photo-1556912177-f547c12dd0ee?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Keuken">
-                    <img src="https://images.unsplash.com/photo-1556912177-f547c12dd0ee?auto=format&fit=crop&w=800&q=80" alt="Keuken">
-                    <div class="gallery-overlay">KEUKEN (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-med filter-item living reveal">
-                <a href="https://images.unsplash.com/photo-1556909212-d5b604ad9290?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Keuken Detail">
-                    <img src="https://images.unsplash.com/photo-1556909212-d5b604ad9290?auto=format&fit=crop&w=800&q=80" alt="Keuken Detail">
-                    <div class="gallery-overlay">KEUKEN (2/2)</div>
-                </a>
-            </div>
-
-            <!-- SLAAPKAMERS -->
-            <div class="gallery-item gi-tall filter-item slaap reveal">
-                <a href="https://images.unsplash.com/photo-1616594111350-bf9262b97d4c?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Master Bedroom">
-                    <img src="https://images.unsplash.com/photo-1616594111350-bf9262b97d4c?auto=format&fit=crop&w=800&q=80" alt="Master Bedroom">
-                    <div class="gallery-overlay">MASTER BEDROOM (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item slaap reveal">
-                <a href="https://images.unsplash.com/photo-1560185127-6a430584496e?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Master Bedroom Light">
-                    <img src="https://images.unsplash.com/photo-1560185127-6a430584496e?auto=format&fit=crop&w=800&q=80" alt="Master Bedroom">
-                    <div class="gallery-overlay">MASTER BEDROOM (2/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item slaap reveal">
-                <a href="https://images.unsplash.com/photo-1505693357370-58c35c544b8b?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Slaapkamer 2">
-                    <img src="https://images.unsplash.com/photo-1505693357370-58c35c544b8b?auto=format&fit=crop&w=800&q=80" alt="Slaapkamer 2">
-                    <div class="gallery-overlay">SLAAPKAMER 2 (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item slaap reveal">
-                <a href="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Slaapkamer 2 Detail">
-                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80" alt="Slaapkamer 2">
-                    <div class="gallery-overlay">SLAAPKAMER 2 (2/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item slaap reveal">
-                <a href="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Slaapkamer 3">
-                    <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80" alt="Slaapkamer 3">
-                    <div class="gallery-overlay">SLAAPKAMER 3 (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item slaap reveal">
-                <a href="https://images.unsplash.com/photo-1445991842772-097fea258e7b?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Slaapkamer 4">
-                    <img src="https://images.unsplash.com/photo-1445991842772-097fea258e7b?auto=format&fit=crop&w=800&q=80" alt="Slaapkamer 4">
-                    <div class="gallery-overlay">SLAAPKAMER 4 (1/2)</div>
-                </a>
-            </div>
-
-            <!-- WELLNESS & BADKAMER -->
-            <div class="gallery-item gi-wide filter-item wellness reveal">
-                <a href="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Badkamer Boven">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80" alt="Badkamer Boven">
-                    <div class="gallery-overlay">BADKAMER BOVEN (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item wellness reveal">
-                <a href="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Badkamer Beneden">
-                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80" alt="Badkamer Beneden">
-                    <div class="gallery-overlay">BADKAMER BENEDEN (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item wellness reveal">
-                <a href="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Sauna">
-                    <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?auto=format&fit=crop&w=800&q=80" alt="Sauna">
-                    <div class="gallery-overlay">SAUNA (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item wellness reveal">
-                <a href="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Wc Detail">
-                    <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80" alt="Wc">
-                    <div class="gallery-overlay">WC 1 & 2</div>
-                </a>
-            </div>
-
-            <!-- TUIN & PATIO -->
-            <div class="gallery-item gi-large filter-item buiten reveal">
-                <a href="google maps 2.png" class="glightbox" data-gallery="woning" data-title="Tuin & Vijver">
-                    <img src="google maps 2.png" alt="Tuin">
-                    <div class="gallery-overlay">TUIN & VIJVER (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-med filter-item buiten reveal">
-                <a href="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Patio">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Patio">
-                    <div class="gallery-overlay">PATIO (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-med filter-item buiten reveal">
-                <a href="https://images.unsplash.com/photo-1558905612-27141b1a454e?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Tuin Detail">
-                    <img src="https://images.unsplash.com/photo-1558905612-27141b1a454e?auto=format&fit=crop&w=800&q=80" alt="Tuin">
-                    <div class="gallery-overlay">TUIN & PATIO (2/2)</div>
-                </a>
-            </div>
-
-            <!-- OVERIG -->
-            <div class="gallery-item gi-small filter-item overig reveal">
-                <a href="https://images.unsplash.com/photo-1533418264835-9871c7c2dbf0?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Garage">
-                    <img src="https://images.unsplash.com/photo-1533418264835-9871c7c2dbf0?auto=format&fit=crop&w=800&q=80" alt="Garage">
-                    <div class="gallery-overlay">GARAGE</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item overig reveal">
-                <a href="https://images.unsplash.com/photo-1562663474-6cbb3fee4c7a?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Trap">
-                    <img src="https://images.unsplash.com/photo-1562663474-6cbb3fee4c7a?auto=format&fit=crop&w=800&q=80" alt="Trap">
-                    <div class="gallery-overlay">TRAP</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-med filter-item overig reveal">
-                <a href="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Kelder & Bergruimte">
-                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Kelder">
-                    <div class="gallery-overlay">KELDER & BERGING (1/2)</div>
-                </a>
-            </div>
-            <div class="gallery-item gi-small filter-item overig reveal">
-                <a href="https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=1200&q=80" class="glightbox" data-gallery="woning" data-title="Kelder Detail">
-                    <img src="https://images.unsplash.com/photo-1595844730298-b960ff98fee0?auto=format&fit=crop&w=800&q=80" alt="Kelder Detail">
-                    <div class="gallery-overlay">KELDER (2/2)</div>
-                </a>
-            </div>
-        </div>
+<!-- ══ GALERIJ ══ -->
+<section id="galerij">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Verken de woning</span>
+      <h2>64 foto's van elke ruimte</h2>
+      <p class="lede">Klik op een foto om die op volledig scherm te bekijken.</p>
     </div>
+
+    <div class="filters reveal" role="group" aria-label="Filter de galerij op ruimte">
+      <button data-f="all" aria-pressed="true">Alles</button>
+      <button data-f="living" aria-pressed="false">Living &amp; keuken</button>
+      <button data-f="slaapkamers" aria-pressed="false">Slaapkamers</button>
+      <button data-f="sanitair" aria-pressed="false">Badkamers</button>
+      <button data-f="sauna" aria-pressed="false">Sauna &amp; garage</button>
+      <button data-f="buiten" aria-pressed="false">Tuin &amp; terras</button>
+      <button data-f="overig" aria-pressed="false">Hal &amp; berging</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <a class="glightbox" href="img/full/living-01.jpg" data-f="living"
+         data-label="Living &amp; zitput" data-gallery="woning" data-title="Living &amp; zitput — Zipstraat 25, Pelt">
+        <img src="img/thumb/living-01.jpg" alt="Living &amp; zitput — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/living-02.jpg" data-f="living"
+         data-label="Living &amp; zitput" data-gallery="woning" data-title="Living &amp; zitput — Zipstraat 25, Pelt">
+        <img src="img/thumb/living-02.jpg" alt="Living &amp; zitput — Zipstraat 25, Pelt"
+             width="2000" height="1761" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/living-03.jpg" data-f="living"
+         data-label="Living &amp; zitput" data-gallery="woning" data-title="Living &amp; zitput — Zipstraat 25, Pelt">
+        <img src="img/thumb/living-03.jpg" alt="Living &amp; zitput — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/living-04.jpg" data-f="living"
+         data-label="Living &amp; zitput" data-gallery="woning" data-title="Living &amp; zitput — Zipstraat 25, Pelt">
+        <img src="img/thumb/living-04.jpg" alt="Living &amp; zitput — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/living-05.jpg" data-f="living"
+         data-label="Living &amp; zitput" data-gallery="woning" data-title="Living &amp; zitput — Zipstraat 25, Pelt">
+        <img src="img/thumb/living-05.jpg" alt="Living &amp; zitput — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/living-06.jpg" data-f="living"
+         data-label="Living &amp; zitput" data-gallery="woning" data-title="Living &amp; zitput — Zipstraat 25, Pelt">
+        <img src="img/thumb/living-06.jpg" alt="Living &amp; zitput — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/keuken-01.jpg" data-f="living"
+         data-label="Keuken" data-gallery="woning" data-title="Keuken — Zipstraat 25, Pelt">
+        <img src="img/thumb/keuken-01.jpg" alt="Keuken — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/keuken-02.jpg" data-f="living"
+         data-label="Keuken" data-gallery="woning" data-title="Keuken — Zipstraat 25, Pelt">
+        <img src="img/thumb/keuken-02.jpg" alt="Keuken — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/keuken-03.jpg" data-f="living"
+         data-label="Keuken" data-gallery="woning" data-title="Keuken — Zipstraat 25, Pelt">
+        <img src="img/thumb/keuken-03.jpg" alt="Keuken — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/keuken-04.jpg" data-f="living"
+         data-label="Keuken" data-gallery="woning" data-title="Keuken — Zipstraat 25, Pelt">
+        <img src="img/thumb/keuken-04.jpg" alt="Keuken — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/keuken-05.jpg" data-f="living"
+         data-label="Keuken" data-gallery="woning" data-title="Keuken — Zipstraat 25, Pelt">
+        <img src="img/thumb/keuken-05.jpg" alt="Keuken — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-01.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-01.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-02.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-02.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-03.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-03.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-04.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-04.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-05.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-05.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-06.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-06.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-07.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-07.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-08.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-08.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-09.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-09.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-10.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-10.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-11.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-11.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-12.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-12.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-13.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-13.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-14.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-14.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-15.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-15.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-16.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-16.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-17.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-17.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-18.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-18.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-19.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-19.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-20.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-20.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/buiten-21.jpg" data-f="buiten"
+         data-label="Tuin &amp; buiten" data-gallery="woning" data-title="Tuin &amp; buiten — Zipstraat 25, Pelt">
+        <img src="img/thumb/buiten-21.jpg" alt="Tuin &amp; buiten — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/master-01.jpg" data-f="slaapkamers"
+         data-label="Masterbedroom" data-gallery="woning" data-title="Masterbedroom — Zipstraat 25, Pelt">
+        <img src="img/thumb/master-01.jpg" alt="Masterbedroom — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/master-02.jpg" data-f="slaapkamers"
+         data-label="Masterbedroom" data-gallery="woning" data-title="Masterbedroom — Zipstraat 25, Pelt">
+        <img src="img/thumb/master-02.jpg" alt="Masterbedroom — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/master-03.jpg" data-f="slaapkamers"
+         data-label="Masterbedroom" data-gallery="woning" data-title="Masterbedroom — Zipstraat 25, Pelt">
+        <img src="img/thumb/master-03.jpg" alt="Masterbedroom — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/master-04.jpg" data-f="slaapkamers"
+         data-label="Masterbedroom" data-gallery="woning" data-title="Masterbedroom — Zipstraat 25, Pelt">
+        <img src="img/thumb/master-04.jpg" alt="Masterbedroom — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/master-05.jpg" data-f="slaapkamers"
+         data-label="Masterbedroom" data-gallery="woning" data-title="Masterbedroom — Zipstraat 25, Pelt">
+        <img src="img/thumb/master-05.jpg" alt="Masterbedroom — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/master-06.jpg" data-f="slaapkamers"
+         data-label="Masterbedroom" data-gallery="woning" data-title="Masterbedroom — Zipstraat 25, Pelt">
+        <img src="img/thumb/master-06.jpg" alt="Masterbedroom — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/slaapkamer-01.jpg" data-f="slaapkamers"
+         data-label="Slaapkamer" data-gallery="woning" data-title="Slaapkamer — Zipstraat 25, Pelt">
+        <img src="img/thumb/slaapkamer-01.jpg" alt="Slaapkamer — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/slaapkamer-02.jpg" data-f="slaapkamers"
+         data-label="Slaapkamer" data-gallery="woning" data-title="Slaapkamer — Zipstraat 25, Pelt">
+        <img src="img/thumb/slaapkamer-02.jpg" alt="Slaapkamer — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/slaapkamer-03.jpg" data-f="slaapkamers"
+         data-label="Slaapkamer" data-gallery="woning" data-title="Slaapkamer — Zipstraat 25, Pelt">
+        <img src="img/thumb/slaapkamer-03.jpg" alt="Slaapkamer — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/slaapkamer-04.jpg" data-f="slaapkamers"
+         data-label="Slaapkamer" data-gallery="woning" data-title="Slaapkamer — Zipstraat 25, Pelt">
+        <img src="img/thumb/slaapkamer-04.jpg" alt="Slaapkamer — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/badkamer-01.jpg" data-f="sanitair"
+         data-label="Badkamer boven" data-gallery="woning" data-title="Badkamer boven — Zipstraat 25, Pelt">
+        <img src="img/thumb/badkamer-01.jpg" alt="Badkamer boven — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/badkamer-02.jpg" data-f="sanitair"
+         data-label="Badkamer boven" data-gallery="woning" data-title="Badkamer boven — Zipstraat 25, Pelt">
+        <img src="img/thumb/badkamer-02.jpg" alt="Badkamer boven — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/badkamer-03.jpg" data-f="sanitair"
+         data-label="Badkamer boven" data-gallery="woning" data-title="Badkamer boven — Zipstraat 25, Pelt">
+        <img src="img/thumb/badkamer-03.jpg" alt="Badkamer boven — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/badkamer-04.jpg" data-f="sanitair"
+         data-label="Badkamer boven" data-gallery="woning" data-title="Badkamer boven — Zipstraat 25, Pelt">
+        <img src="img/thumb/badkamer-04.jpg" alt="Badkamer boven — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/badkamer-05.jpg" data-f="sanitair"
+         data-label="Badkamer boven" data-gallery="woning" data-title="Badkamer boven — Zipstraat 25, Pelt">
+        <img src="img/thumb/badkamer-05.jpg" alt="Badkamer boven — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/badkamer-06.jpg" data-f="sanitair"
+         data-label="Badkamer boven" data-gallery="woning" data-title="Badkamer boven — Zipstraat 25, Pelt">
+        <img src="img/thumb/badkamer-06.jpg" alt="Badkamer boven — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/washok-01.jpg" data-f="sanitair"
+         data-label="Washok &amp; douche" data-gallery="woning" data-title="Washok &amp; douche — Zipstraat 25, Pelt">
+        <img src="img/thumb/washok-01.jpg" alt="Washok &amp; douche — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/washok-02.jpg" data-f="sanitair"
+         data-label="Washok &amp; douche" data-gallery="woning" data-title="Washok &amp; douche — Zipstraat 25, Pelt">
+        <img src="img/thumb/washok-02.jpg" alt="Washok &amp; douche — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/washok-03.jpg" data-f="sanitair"
+         data-label="Washok &amp; douche" data-gallery="woning" data-title="Washok &amp; douche — Zipstraat 25, Pelt">
+        <img src="img/thumb/washok-03.jpg" alt="Washok &amp; douche — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/washok-04.jpg" data-f="sanitair"
+         data-label="Washok &amp; douche" data-gallery="woning" data-title="Washok &amp; douche — Zipstraat 25, Pelt">
+        <img src="img/thumb/washok-04.jpg" alt="Washok &amp; douche — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/sauna-01.jpg" data-f="sauna"
+         data-label="Sauna &amp; garage" data-gallery="woning" data-title="Sauna &amp; garage — Zipstraat 25, Pelt">
+        <img src="img/thumb/sauna-01.jpg" alt="Sauna &amp; garage — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/sauna-02.jpg" data-f="sauna"
+         data-label="Sauna &amp; garage" data-gallery="woning" data-title="Sauna &amp; garage — Zipstraat 25, Pelt">
+        <img src="img/thumb/sauna-02.jpg" alt="Sauna &amp; garage — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/sauna-03.jpg" data-f="sauna"
+         data-label="Sauna &amp; garage" data-gallery="woning" data-title="Sauna &amp; garage — Zipstraat 25, Pelt">
+        <img src="img/thumb/sauna-03.jpg" alt="Sauna &amp; garage — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/sauna-04.jpg" data-f="sauna"
+         data-label="Sauna &amp; garage" data-gallery="woning" data-title="Sauna &amp; garage — Zipstraat 25, Pelt">
+        <img src="img/thumb/sauna-04.jpg" alt="Sauna &amp; garage — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/sauna-05.jpg" data-f="sauna"
+         data-label="Sauna &amp; garage" data-gallery="woning" data-title="Sauna &amp; garage — Zipstraat 25, Pelt">
+        <img src="img/thumb/sauna-05.jpg" alt="Sauna &amp; garage — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/hal-01.jpg" data-f="overig"
+         data-label="Hal &amp; toilet" data-gallery="woning" data-title="Hal &amp; toilet — Zipstraat 25, Pelt">
+        <img src="img/thumb/hal-01.jpg" alt="Hal &amp; toilet — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/hal-02.jpg" data-f="overig"
+         data-label="Hal &amp; toilet" data-gallery="woning" data-title="Hal &amp; toilet — Zipstraat 25, Pelt">
+        <img src="img/thumb/hal-02.jpg" alt="Hal &amp; toilet — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/hal-03.jpg" data-f="overig"
+         data-label="Hal &amp; toilet" data-gallery="woning" data-title="Hal &amp; toilet — Zipstraat 25, Pelt">
+        <img src="img/thumb/hal-03.jpg" alt="Hal &amp; toilet — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/hal-04.jpg" data-f="overig"
+         data-label="Hal &amp; toilet" data-gallery="woning" data-title="Hal &amp; toilet — Zipstraat 25, Pelt">
+        <img src="img/thumb/hal-04.jpg" alt="Hal &amp; toilet — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/hal-05.jpg" data-f="overig"
+         data-label="Hal &amp; toilet" data-gallery="woning" data-title="Hal &amp; toilet — Zipstraat 25, Pelt">
+        <img src="img/thumb/hal-05.jpg" alt="Hal &amp; toilet — Zipstraat 25, Pelt"
+             width="2000" height="1335" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/hal-06.jpg" data-f="overig"
+         data-label="Hal &amp; toilet" data-gallery="woning" data-title="Hal &amp; toilet — Zipstraat 25, Pelt">
+        <img src="img/thumb/hal-06.jpg" alt="Hal &amp; toilet — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+      <a class="glightbox" href="img/full/hal-07.jpg" data-f="overig"
+         data-label="Hal &amp; toilet" data-gallery="woning" data-title="Hal &amp; toilet — Zipstraat 25, Pelt">
+        <img src="img/thumb/hal-07.jpg" alt="Hal &amp; toilet — Zipstraat 25, Pelt"
+             width="1335" height="2000" loading="lazy" decoding="async">
+      </a>
+    </div>
+  </div>
 </section>
 
-<section id="video" class="bg-light">
-    <div class="container">
-        <div class="section-header text-center reveal">
-            <span class="section-subtitle">Beleving</span>
-            <h2 class="section-title">Videorondleiding</h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-10 reveal">
-                <div class="ratio ratio-16x9 shadow-lg">
-                    <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" 
-                        title="Real Estate Tour" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
+<!-- ══ VIDEO ══
+     Stuur de YouTube-link door en vervang VIDEO_ID hieronder; verwijder dan deze
+     twee commentaarregels om de sectie zichtbaar te maken.
+<section id="video">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Beeld</span>
+      <h2>Videorondleiding</h2>
     </div>
+    <iframe class="map" src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+            title="Videorondleiding Zipstraat 25" loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+  </div>
+</section>
+══ EINDE VIDEO ══ -->
+
+<!-- ══ INFO & WETTELIJKE VERMELDINGEN ══ -->
+<section id="info">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Transparant</span>
+      <h2>Kenmerken en wettelijke informatie</h2>
+    </div>
+    <!-- Vervang elke "nog aan te vullen" zodra de attesten binnen zijn. -->
+    <div class="info-grid reveal">
+      <div><span>Type woning</span><b>Open bebouwing</b></div>
+      <div><span>Bewoonbare oppervlakte</span><b>175 m²</b></div>
+      <div><span>Slaapkamers</span><b>4</b></div>
+      <div><span>Badkamers</span><b>2</b></div>
+      <div><span>Perceeloppervlakte</span><b>nog aan te vullen</b></div>
+      <div><span>Bouwjaar</span><b>nog aan te vullen</b></div>
+      <div><span>EPC-label</span><b>nog aan te vullen</b></div>
+      <div><span>Energiescore</span><b>nog aan te vullen kWh/m²jaar</b></div>
+      <div><span>EPC-certificaatnummer</span><b>nog aan te vullen</b></div>
+      <div><span>Kadastraal inkomen</span><b>nog aan te vullen</b></div>
+      <div><span>Stedenbouwkundige bestemming</span><b>nog aan te vullen</b></div>
+      <div><span>Stedenbouwkundige vergunning</span><b>nog aan te vullen</b></div>
+      <div><span>Dagvaarding handhaving</span><b>nog aan te vullen</b></div>
+      <div><span>Voorkooprecht</span><b>nog aan te vullen</b></div>
+      <div><span>Overstromingsgevoeligheid perceel (P&#8209;score)</span><b>nog aan te vullen</b></div>
+      <div><span>Overstromingsgevoeligheid gebouw (G&#8209;score)</span><b>nog aan te vullen</b></div>
+    </div>
+    <p class="note">
+      Deze gegevens worden aangevuld zodra alle attesten beschikbaar zijn. Ze worden te
+      goeder trouw meegedeeld en zijn niet bindend; de notariële akte is doorslaggevend.
+      Heeft u een gegeven eerder nodig? Vraag het gerust op.
+    </p>
+  </div>
 </section>
 
-<section id="locatie" class="bg-light">
-    <div class="container">
-        <div class="section-header text-center reveal">
-            <span class="section-subtitle">Omgeving</span>
-            <h2 class="section-title">Ligging van de woning</h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-10 reveal">
-                <div class="ratio ratio-21x9 shadow-lg">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2503.743849187313!2d5.421528577002047!3d51.223805771749815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c1340150997f77%3A0x673966085a11c1e!2sZipstraat%2025%2C%203900%20Pelt%2C%20Belgium!5e0!3m2!1sen!2sbe!4v1716380000000!5m2!1sen!2sbe" 
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                <div class="mt-4 text-center">
-                    <p class="text-muted"><i class="bi bi-geo-alt-fill me-2 text-accent"></i> Zipstraat 25, 3900 Pelt, België</p>
-                </div>
-            </div>
-        </div>
+<!-- ══ LIGGING ══ -->
+<section id="ligging">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Omgeving</span>
+      <h2>Rustig wonen in Pelt</h2>
+      <p class="lede">
+        Zipstraat 25 ligt in een rustige straat in Pelt, op wandel- en fietsafstand van het
+        groen waar Noord-Limburg om bekendstaat. Winkels, scholen en invalswegen zijn vlot
+        bereikbaar, en de Nederlandse grens ligt om de hoek.
+      </p>
     </div>
+    <iframe class="map reveal" title="Kaart met de ligging van Zipstraat 25 in Pelt" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2503.743849187313!2d5.421528577002047!3d51.223805771749815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c1340150997f77%3A0x673966085a11c1e!2sZipstraat%2025%2C%203900%20Pelt%2C%20Belgium!5e0!3m2!1snl!2sbe!4v1716380000000!5m2!1snl!2sbe"></iframe>
+  </div>
 </section>
 
+<!-- ══ CONTACT ══ -->
 <section id="contact">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8 reveal">
-                <span class="section-subtitle">Interesse?</span>
-                <h2 class="section-title mb-5">Laten we kennismaken</h2>
-                <p class="text-muted lead mb-5">Heeft u vragen over de woning of wenst u een persoonlijke rondleiding? Neem direct contact met ons op via onderstaande kanalen.</p>
-                
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-5">
-                        <a href="mailto:robdesair@gmail.com" class="text-decoration-none">
-                            <div class="spec-card p-5">
-                                <i class="bi bi-envelope-at spec-icon"></i>
-                                <div class="contact-info-label">E-mail</div>
-                                <div class="spec-value text-break" style="font-size: 1.2rem;">robdesair@gmail.com</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-5">
-                        <a href="tel:+32474385818" class="text-decoration-none">
-                            <div class="spec-card p-5">
-                                <i class="bi bi-telephone-outbound spec-icon"></i>
-                                <div class="contact-info-label">Telefoon</div>
-                                <div class="spec-value" style="font-size: 1.2rem;">+32 474 38 58 18</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="mt-5 pt-4">
-                    <div class="contact-info-label">Locatie</div>
-                    <p class="spec-value">Zipstraat 25, 3900 Pelt</p>
-                </div>
-            </div>
-        </div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Interesse?</span>
+    <h2 class="reveal" style="margin-inline:auto">Kom de woning met eigen ogen zien</h2>
+    <p class="lede reveal" style="margin:1.2rem auto 0">
+      Een bezoek zegt meer dan honderd foto's. Bel of mail gerust — een rondleiding
+      plannen we snel en vrijblijvend in.
+    </p>
+    <div class="contact-row reveal">
+      <a class="contact-card" href="tel:+32474385818">
+        <span>☎</span><small>Telefoon</small><b>+32 474 38 58 18</b>
+      </a>
+      <a class="contact-card" href="mailto:robdesair@gmail.com?subject=Interesse%20in%20Zipstraat%2025">
+        <span>✉</span><small>E-mail</small><b>robdesair@gmail.com</b>
+      </a>
+      <a class="contact-card" href="https://maps.google.com/?q=Zipstraat+25,+3900+Pelt,+Belgium" target="_blank" rel="noopener">
+        <span>⌖</span><small>Adres</small><b>Zipstraat 25, 3900 Pelt</b>
+      </a>
     </div>
+  </div>
 </section>
 
-<footer class="text-center">
-    <div class="container">
-        <p class="mb-2">© 2026 Zipstraat 25. Alle rechten voorbehouden.</p>
-        <p class="mb-0 opacity-50">Ontworpen voor een unieke woonbeleving.</p>
-    </div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Zipstraat 25 — Pelt, België</span>
+    <span><a href="beleving.html">Het verhaal van de bewoners</a> · Particuliere verkoop, zonder makelaar</span>
+  </div>
 </footer>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<script>
-    // Initialize GLightbox
-    const lightbox = GLightbox({ selector: '.glightbox' });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-
-    // Theme Toggle Logic
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-    const htmlElement = document.documentElement;
-
-    const setTheme = (theme) => {
-        htmlElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        const icon = theme === 'dark' ? 'bi-sun' : 'bi-moon-stars';
-        themeToggle.innerHTML = `<i class="bi ${icon}"></i>`;
-        themeToggleMobile.innerHTML = `<i class="bi ${icon}"></i>`;
-    };
-
-    const toggleTheme = () => {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    };
-
-    themeToggle.addEventListener('click', toggleTheme);
-    themeToggleMobile.addEventListener('click', toggleTheme);
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setTheme('dark');
-    }
-
-    // Register ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero Parallax
-    gsap.to(".hero-img", {
-        yPercent: 20,
-        ease: "none",
-        scrollTrigger: {
-            trigger: "#hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-        }
-    });
-
-    // Reveal animations
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach((el) => {
-        gsap.to(el, {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            ease: "power4.out",
-            scrollTrigger: {
-                trigger: el,
-                start: "top 85%",
-                toggleActions: "play none none none"
-            }
-        });
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Gallery Filtering
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.filter-item');
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            // Animate items
-            gsap.to(galleryItems, {
-                duration: 0.4,
-                scale: 0.8,
-                opacity: 0,
-                display: 'none',
-                ease: 'power2.in',
-                onComplete: () => {
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.classList.contains(filter)) {
-                            item.style.display = 'block';
-                            gsap.to(item, {
-                                duration: 0.6,
-                                scale: 1,
-                                opacity: 1,
-                                ease: 'power2.out'
-                            });
-                        }
-                    });
-                    // Refresh ScrollTrigger as height changed
-                    ScrollTrigger.refresh();
-                }
-            });
-        });
-    });
-
-    // Handle hash on page load
-    window.addEventListener('load', () => {
-        if (window.location.hash) {
-            const target = document.querySelector(window.location.hash);
-            if (target) {
-                setTimeout(() => {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            }
-        }
-    });
+<!-- Structured data: laat Google de woning als vastgoedaanbod herkennen -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SingleFamilyResidence",
+  "name":"Zipstraat 25",
+  "url":"https://zipstraat25.be/",
+  "image":"https://zipstraat25.be/img/full/buiten-10.jpg",
+  "numberOfBedrooms":4,
+  "numberOfBathroomsTotal":2,
+  "floorSize":{"@type":"QuantitativeValue","value":175,"unitCode":"MTK"},
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Zipstraat 25",
+    "postalCode":"3900",
+    "addressLocality":"Pelt",
+    "addressCountry":"BE"
+  }
+}
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js" defer></script>
+<script>
+// ── Thema: volgt het systeem, tenzij de bezoeker zelf koos ──
+const root = document.documentElement, btn = document.getElementById('theme');
+const paint = t => { root.dataset.theme = t; btn.textContent = t === 'dark' ? '☀' : '🌙'; };
+paint(localStorage.getItem('theme')
+  || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+btn.onclick = () => {
+  const t = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  paint(t);
+  try { localStorage.setItem('theme', t); } catch {}  // private mode: thema werkt, wordt niet onthouden
+};
+
+// ── Navigatiebalk krijgt achtergrond zodra je scrolt ──
+const bar = document.getElementById('top-bar');
+addEventListener('scroll', () => bar.classList.toggle('stuck', scrollY > 40), {passive:true});
+
+// ── Galerijfilter ──
+const tiles = [...document.querySelectorAll('#grid a')];
+document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.filters button')
+    .forEach(o => o.setAttribute('aria-pressed', o === b));
+  const f = b.dataset.f;
+  tiles.forEach(t => t.hidden = f !== 'all' && t.dataset.f !== f);
+});
+
+// ── Secties laten invaren ──
+const io = new IntersectionObserver((es, o) => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); }
+}), {rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ── Lightbox ──
+addEventListener('load', () => GLightbox({selector:'.glightbox', loop:true}));
+</script>
+
+<!-- ══ BEZOEKERSTELLER ══
+     GoatCounter: gratis, plaatst géén cookies, dus geen cookiebanner nodig.
+     1. Maak een account op https://www.goatcounter.com/signup
+     2. Vervang JOUWCODE hieronder door de code die u daar koos
+     3. Verwijder deze twee commentaarregels
+<script data-goatcounter="https://JOUWCODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+══ EINDE BEZOEKERSTELLER ══ -->
 
 </body>
 </html>

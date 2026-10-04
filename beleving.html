@@ -1,289 +1,198 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De Beleving — Zipstraat 25</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wonen in Zipstraat 25 — het verhaal van de bewoners</title>
+<meta name="description" content="Hoe het is om te wonen in Zipstraat 25 in Pelt: het ochtendlicht in de living, het water in de tuin en de rust van een straat waar niets moet.">
+<link rel="canonical" href="https://zipstraat25.be/beleving.html">
 
-    <!-- Bootstrap 5.3 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:url" content="https://zipstraat25.be/beleving.html">
+<meta property="og:title" content="Wonen in Zipstraat 25 — het verhaal van de bewoners">
+<meta property="og:description" content="Het ochtendlicht in de living, het water in de tuin en de rust van een straat waar niets moet.">
+<meta property="og:image" content="https://zipstraat25.be/img/full/buiten-18.jpg">
+<meta name="twitter:card" content="summary_large_image">
 
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #7c8a7c;
-            --light-bg: #fbfbfb;
-            --text-muted: #6c757d;
-            --bg-color: #ffffff;
-            --nav-bg: 255, 255, 255;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
 
-        [data-theme="dark"] {
-            --primary: #f8f9fa;
-            --accent: #9fb19f; /* Lighter Sage for dark mode */
-            --light-bg: #222222;
-            --text-muted: #adb5bd;
-            --bg-color: #1a1a1a;
-            --nav-bg: 26, 26, 26;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--primary);
-            background-color: var(--bg-color);
-            transition: background-color 0.4s ease, color 0.4s ease;
-            overflow-x: hidden;
-        }
+<style>
+/* Alleen voor deze pagina — de rest komt uit style.css */
+.story-hero{position:relative;min-height:min(72svh,38rem);display:grid;align-items:end;padding:0;color:#fff}
+.story-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story-hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(20,16,10,.85),rgba(20,16,10,.15) 60%)}
+.story-hero .wrap{position:relative;z-index:2;padding-block:clamp(3rem,9vh,6rem)}
+.story-hero h1{font-size:clamp(1.9rem,1.2rem + 3vw,3.6rem);max-width:19ch;text-wrap:balance}
+.story-hero .eyebrow{color:#f0c9ad}
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
+blockquote{
+  margin:0;padding:0;font-family:Fraunces,Georgia,serif;
+  font-size:clamp(1.3rem,1rem + 1.6vw,2.1rem);line-height:1.35;
+  text-wrap:balance;max-width:24ch;
+}
+blockquote footer{border:0;padding:0;margin-top:1.2rem;font:500 .8rem/1 Inter,sans-serif;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.quote-band{background:var(--surface);border-block:1px solid var(--line);text-align:center}
+.quote-band blockquote{margin-inline:auto}
 
-        .text-muted { color: var(--text-muted) !important; }
+.chapter{display:grid;gap:clamp(1.8rem,5vw,3.5rem);align-items:center}
+@media(min-width:900px){
+  .chapter{grid-template-columns:1fr 1fr}
+  .chapter.flip > img{order:-1}
+}
+.chapter img{border-radius:var(--radius);box-shadow:var(--shadow);max-height:34rem;object-fit:cover;width:100%}
+.chapter + .chapter{margin-top:clamp(3.5rem,8vw,6rem)}
+.chapter h2{font-size:clamp(1.5rem,1.1rem + 1.6vw,2.2rem)}
+.chapter p{color:var(--muted);margin:1rem 0 0}
 
-        h1, h2, h3, .navbar-brand { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-        .serif { font-family: 'Playfair Display', serif; font-style: italic; }
-
-        /* ── Navbar ── */
-        .navbar { padding: 1.5rem 0; transition: var(--transition); background: transparent; z-index: 1000; }
-        .navbar.scrolled { padding: 0.8rem 0; background: rgba(var(--nav-bg), 0.9); backdrop-filter: blur(10px); }
-        .navbar-brand { color: var(--primary) !important; letter-spacing: -0.02em; }
-        .nav-link { font-weight: 500; color: var(--primary) !important; opacity: 0.7; }
-        .theme-toggle { background: none; border: none; color: var(--primary); font-size: 1.2rem; cursor: pointer; padding: 0.5rem; opacity: 0.7; }
-
-        /* ── Parallax Sections ── */
-        .parallax-wrap { position: relative; height: 100vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .parallax-bg { position: absolute; top: -10%; left: 0; width: 100%; height: 130%; background-size: cover; background-position: center; z-index: 0; }
-        .parallax-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1; }
-        
-        .content-box { position: relative; z-index: 2; color: #fff; text-align: center; max-width: 900px; padding: 0 20px; }
-        .testimonial-text { font-size: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.4; margin-bottom: 2rem; }
-        .testimonial-author { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.8; }
-
-        /* ── Layout Sections ── */
-        .section-padding { padding: 120px 0; }
-        .large-lead { font-size: clamp(1.2rem, 3vw, 1.8rem); line-height: 1.6; font-weight: 300; }
-        
-        .image-reveal-wrap { position: relative; overflow: hidden; height: 100%; min-height: 400px; }
-        .image-reveal-wrap img { width: 100%; height: 100%; object-fit: cover; }
-
-        .mood-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--accent); font-weight: 700; margin-bottom: 1.5rem; display: block; }
-
-        .reveal { opacity: 0; transform: translateY(40px); }
-
-        .bg-soft { background-color: var(--light-bg); }
-
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 40px;
-            transition: var(--transition);
-        }
-        .btn-back:hover { transform: translateX(-5px); color: var(--accent); }
-
-        @media (max-width: 992px) {
-            .section-padding { padding: 80px 0; }
-        }
-    </style>
+.closing{text-align:center}
+.closing h2{margin-inline:auto}
+</style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">ZIPSTRAAT 25</a>
-        <div class="ms-auto d-flex align-items-center gap-3">
-            <a href="index.html" class="nav-link">Home</a>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                <i class="bi bi-moon-stars"></i>
-            </button>
-        </div>
-    </div>
-</nav>
+<header id="top-bar">
+  <div class="wrap">
+    <a class="brand" href="index.html">Zipstraat&nbsp;25</a>
+    <nav>
+      <a href="index.html#woning">De woning</a>
+      <a href="index.html#galerij">Galerij</a>
+      <a href="index.html#info">Info</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="icon-btn" id="theme" aria-label="Wissel tussen licht en donker thema">🌙</button>
+  </div>
+</header>
 
-<!-- HERO -->
-<div class="parallax-wrap">
-    <div class="parallax-bg" style="background-image: url('google maps 1.png');"></div>
-    <div class="parallax-overlay"></div>
-    <div class="content-box">
-        <span class="mood-tag reveal" style="color: #fff; opacity: 0.8;">Een persoonlijke getuigenis</span>
-        <h1 class="testimonial-text reveal serif">"Het is een plek waar we elke dag opnieuw tot rust kwamen na een drukke dag."</h1>
-        <p class="testimonial-author reveal">— De huidige bewoners</p>
-    </div>
-</div>
-
-<!-- SECTION 1: THE FEELING -->
-<section class="section-padding">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-lg-9 reveal">
-                <span class="mood-tag">De essentie</span>
-                <p class="large-lead mb-5">
-                    Zipstraat 25 is meer dan zomaar een huis. De prachtige lichtinval in de living, de unieke sfeer van de <span class="serif">zitput</span>, en de absolute stilte in de patio maakten het voor ons een echte thuis. 
-                </p>
-            </div>
-        </div>
-    </div>
+<section class="story-hero">
+  <img src="img/full/buiten-18.jpg" alt="Het overdekte terras met zonnewering, uitkijkend over de tuin en de vijver" width="2000" height="1335" fetchpriority="high">
+  <div class="wrap">
+    <span class="eyebrow">Een persoonlijke getuigenis</span>
+    <h1>Hoe het is om hier echt te wonen</h1>
+  </div>
 </section>
 
-<!-- SECTION 2: MORNING (Split Layout) -->
-<section class="section-padding bg-soft">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6 reveal">
-                <div class="pe-lg-5">
-                    <span class="mood-tag">Het Ochtendritueel</span>
-                    <h2 class="serif mb-4" style="font-size: 3rem;">Ontwaken met de zon</h2>
-                    <p class="text-muted lead">
-                        Niets evenaart het gevoel van de eerste zonnestralen die door de grote ramen vallen. Een rustige start van de dag met een koffie op de patio. De woning ademt rust, weg van de dagelijkse drukte.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-6 reveal">
-                <div class="image-reveal-wrap shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Morning Light">
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="quote-band">
+  <div class="wrap">
+    <blockquote class="reveal">
+      „Het is een plek waar we elke dag opnieuw tot rust kwamen na een drukke dag.”
+      <footer>— De huidige bewoners</footer>
+    </blockquote>
+  </div>
 </section>
 
-<!-- SECTION 3: OASIS -->
-<section class="section-padding">
-    <div class="container">
-        <div class="row align-items-center g-5 flex-lg-row-reverse">
-            <div class="col-lg-6 reveal">
-                <div class="ps-lg-5">
-                    <span class="mood-tag">Een oase van rust</span>
-                    <h2 class="serif mb-4" style="font-size: 3rem;">Kabbelend water & privacy</h2>
-                    <p class="text-muted lead">
-                        De tuin met de vijver en het watervalletje vormt het hart van onze zomers. Het geluid van het water werkt bijna meditatief. In de winter trekken we ons terug in de sauna of de zitput, waar de sfeer altijd geborgen en intiem aanvoelt.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-6 reveal">
-                <div class="image-reveal-wrap shadow-lg">
-                    <img src="google maps 2.png" alt="Oasis Garden">
-                </div>
-            </div>
-        </div>
+<section>
+  <div class="wrap">
+
+    <div class="chapter reveal">
+      <div>
+        <span class="eyebrow">Het ochtendritueel</span>
+        <h2>Ontwaken met de zon</h2>
+        <p>
+          De eerste zonnestralen vallen door de grote raampartij naar binnen en schuiven
+          langzaam over de tegelvloer mee. Koffie aan de eettafel, de schuifdeur open, en
+          de dag begint zonder haast. Dat is het ritme dat dit huis oplegt — en waar we
+          nooit aan gewend zijn geraakt, in de goede zin.
+        </p>
+      </div>
+      <img src="img/full/living-05.jpg" alt="De eetkamer met de ronde bakstenen boog en zicht op het terras" width="2000" height="1335" loading="lazy">
     </div>
+
+    <div class="chapter flip reveal">
+      <div>
+        <span class="eyebrow">Een oase van rust</span>
+        <h2>Kabbelend water en privacy</h2>
+        <p>
+          De vijver met de koi is het hart van onze zomers geweest. Het geluid van het
+          water werkt bijna meditatief, en het brugje is al door drie generaties
+          kleinkinderen overgestoken. De tuin is omheind, dus kinderen en honden kunnen
+          gewoon hun gang gaan.
+        </p>
+      </div>
+      <img src="img/full/buiten-15.jpg" alt="De koivijver met houten brugje en veiligheidsrooster" width="1335" height="2000" loading="lazy">
+    </div>
+
+    <div class="chapter reveal">
+      <div>
+        <span class="eyebrow">De winteravonden</span>
+        <h2>De zitput en de sauna</h2>
+        <p>
+          Als het buiten kort en donker wordt, verhuist het leven naar binnen. De
+          verlaagde zitput is precies groot genoeg om samen te zijn en klein genoeg om
+          geborgen te voelen. En na een koude dag is er nog altijd de sauna — op tien
+          stappen van de woonkamer, zonder afspraak.
+        </p>
+      </div>
+      <img src="img/full/living-03.jpg" alt="De verlaagde zitput in de leefruimte met granieten trap" width="2000" height="1335" loading="lazy">
+    </div>
+
+    <div class="chapter flip reveal">
+      <div>
+        <span class="eyebrow">Pelt ontdekken</span>
+        <h2>De perfecte balans</h2>
+        <p>
+          De straat is rustig, maar je staat zo op de fiets richting het groen van
+          Noord-Limburg. Winkels en scholen zijn dichtbij, de Nederlandse grens ligt om
+          de hoek, en toch hoor je thuis vooral vogels. Die combinatie is zeldzamer dan
+          ze klinkt.
+        </p>
+      </div>
+      <img src="img/full/buiten-01.jpg" alt="De achtergevel van de woning met terras en ruime tuin" width="2000" height="1335" loading="lazy">
+    </div>
+
+  </div>
 </section>
 
-<!-- SECTION 4: LOCATION -->
-<section class="section-padding bg-soft">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 reveal">
-                <span class="mood-tag">Pelt ontdekken</span>
-                <h2 class="serif mb-4" style="font-size: 3rem;">De perfecte balans</h2>
-                <p class="text-muted lead mb-5">
-                    Gelegen in een rustige straat in Pelt, biedt deze woning een ideale uitvalsbasis. Geniet van de Limburgse gastvrijheid en de groene omgeving, terwijl je thuis geniet van absolute privacy en luxe.
-                </p>
-                <img src="https://images.unsplash.com/photo-1510253687831-0f982d7862fc?auto=format&fit=crop&w=1600&q=80" alt="Limburg Nature" class="img-fluid shadow-lg mb-5">
-            </div>
-        </div>
+<section class="quote-band closing">
+  <div class="wrap">
+    <span class="eyebrow reveal">Tot ziens?</span>
+    <h2 class="reveal" style="margin-inline:auto">Klaar om dit uw thuis te noemen?</h2>
+    <p class="lede reveal" style="margin:1.2rem auto 2.2rem">
+      We laten de woning graag zelf zien. Een rondleiding is vrijblijvend en snel geregeld.
+    </p>
+    <div class="cta-row reveal" style="justify-content:center">
+      <a class="btn btn-fill" href="index.html#contact">Contacteer ons</a>
+      <a class="btn btn-ghost" href="index.html#galerij">Terug naar de galerij</a>
     </div>
+  </div>
 </section>
 
-<!-- FINAL CALL -->
-<div class="parallax-wrap" style="height: 70vh;">
-    <div class="parallax-bg" style="background-image: url('google maps 1.png');"></div>
-    <div class="parallax-overlay"></div>
-    <div class="content-box">
-        <h2 class="reveal serif" style="font-size: clamp(2rem, 6vw, 4rem);">Klaar om dit uw thuis te noemen?</h2>
-        <div class="reveal mt-4">
-            <a href="index.html#contact" class="btn btn-outline-light px-5 py-3 rounded-0 fw-bold">CONTACTEER ONS</a>
-        </div>
-    </div>
-</div>
-
-<footer class="py-5 text-center">
-    <div class="container">
-        <div class="reveal">
-            <a href="index.html" class="btn-back">
-                <i class="bi bi-arrow-left"></i> Terug naar het overzicht
-            </a>
-            <p class="mt-5 mb-0 opacity-50">© 2026 Zipstraat 25 — Een unieke woonbeleving.</p>
-        </div>
-    </div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Zipstraat 25 — Pelt, België</span>
+    <span><a href="index.html">Terug naar het overzicht</a></span>
+  </div>
 </footer>
 
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 <script>
-    // Theme Logic
-    const themeToggle = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
+// ── Thema: volgt het systeem, tenzij de bezoeker zelf koos ──
+const root = document.documentElement, btn = document.getElementById('theme');
+const paint = t => { root.dataset.theme = t; btn.textContent = t === 'dark' ? '☀' : '🌙'; };
+paint(localStorage.getItem('theme')
+  || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+btn.onclick = () => {
+  const t = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  paint(t);
+  try { localStorage.setItem('theme', t); } catch {}
+};
 
-    const setTheme = (theme) => {
-        htmlElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        const icon = theme === 'dark' ? 'bi-sun' : 'bi-moon-stars';
-        themeToggle.innerHTML = `<i class="bi ${icon}"></i>`;
-    };
+const bar = document.getElementById('top-bar');
+addEventListener('scroll', () => bar.classList.toggle('stuck', scrollY > 40), {passive:true});
 
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) setTheme(savedTheme);
-
-    // GSAP
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Parallax
-    gsap.utils.toArray('.parallax-wrap').forEach(wrap => {
-        const bg = wrap.querySelector('.parallax-bg');
-        gsap.to(bg, {
-            yPercent: 30,
-            ease: "none",
-            scrollTrigger: {
-                trigger: wrap,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        });
-    });
-
-    // Reveals
-    gsap.utils.toArray('.reveal').forEach(el => {
-        gsap.to(el, {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-            ease: "power4.out",
-            scrollTrigger: {
-                trigger: el,
-                start: "top 90%"
-            }
-        });
-    });
-
-    // Navbar effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
-    });
+const io = new IntersectionObserver((es, o) => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); }
+}), {rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
+<!-- ══ BEZOEKERSTELLER — zelfde scriptregel als op index.html hier plaatsen ══ -->
 
 </body>
 </html>

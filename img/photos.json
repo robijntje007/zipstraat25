@@ -1,0 +1,450 @@
+[
+ {
+  "file": "living-01.jpg",
+  "filter": "living",
+  "label": "Living & zitput",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "living-02.jpg",
+  "filter": "living",
+  "label": "Living & zitput",
+  "w": 2000,
+  "h": 1761
+ },
+ {
+  "file": "living-03.jpg",
+  "filter": "living",
+  "label": "Living & zitput",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "living-04.jpg",
+  "filter": "living",
+  "label": "Living & zitput",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "living-05.jpg",
+  "filter": "living",
+  "label": "Living & zitput",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "living-06.jpg",
+  "filter": "living",
+  "label": "Living & zitput",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "keuken-01.jpg",
+  "filter": "living",
+  "label": "Keuken",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "keuken-02.jpg",
+  "filter": "living",
+  "label": "Keuken",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "keuken-03.jpg",
+  "filter": "living",
+  "label": "Keuken",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "keuken-04.jpg",
+  "filter": "living",
+  "label": "Keuken",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "keuken-05.jpg",
+  "filter": "living",
+  "label": "Keuken",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "master-01.jpg",
+  "filter": "slaapkamers",
+  "label": "Masterbedroom",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "master-02.jpg",
+  "filter": "slaapkamers",
+  "label": "Masterbedroom",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "master-03.jpg",
+  "filter": "slaapkamers",
+  "label": "Masterbedroom",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "master-04.jpg",
+  "filter": "slaapkamers",
+  "label": "Masterbedroom",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "master-05.jpg",
+  "filter": "slaapkamers",
+  "label": "Masterbedroom",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "master-06.jpg",
+  "filter": "slaapkamers",
+  "label": "Masterbedroom",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "slaapkamer-01.jpg",
+  "filter": "slaapkamers",
+  "label": "Slaapkamer",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "slaapkamer-02.jpg",
+  "filter": "slaapkamers",
+  "label": "Slaapkamer",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "slaapkamer-03.jpg",
+  "filter": "slaapkamers",
+  "label": "Slaapkamer",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "slaapkamer-04.jpg",
+  "filter": "slaapkamers",
+  "label": "Slaapkamer",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "badkamer-01.jpg",
+  "filter": "sanitair",
+  "label": "Badkamer boven",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "badkamer-02.jpg",
+  "filter": "sanitair",
+  "label": "Badkamer boven",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "badkamer-03.jpg",
+  "filter": "sanitair",
+  "label": "Badkamer boven",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "badkamer-04.jpg",
+  "filter": "sanitair",
+  "label": "Badkamer boven",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "badkamer-05.jpg",
+  "filter": "sanitair",
+  "label": "Badkamer boven",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "badkamer-06.jpg",
+  "filter": "sanitair",
+  "label": "Badkamer boven",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "washok-01.jpg",
+  "filter": "sanitair",
+  "label": "Washok & douche",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "washok-02.jpg",
+  "filter": "sanitair",
+  "label": "Washok & douche",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "washok-03.jpg",
+  "filter": "sanitair",
+  "label": "Washok & douche",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "washok-04.jpg",
+  "filter": "sanitair",
+  "label": "Washok & douche",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "sauna-01.jpg",
+  "filter": "sauna",
+  "label": "Sauna & garage",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "sauna-02.jpg",
+  "filter": "sauna",
+  "label": "Sauna & garage",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "sauna-03.jpg",
+  "filter": "sauna",
+  "label": "Sauna & garage",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "sauna-04.jpg",
+  "filter": "sauna",
+  "label": "Sauna & garage",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "sauna-05.jpg",
+  "filter": "sauna",
+  "label": "Sauna & garage",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "hal-01.jpg",
+  "filter": "overig",
+  "label": "Hal & toilet",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "hal-02.jpg",
+  "filter": "overig",
+  "label": "Hal & toilet",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "hal-03.jpg",
+  "filter": "overig",
+  "label": "Hal & toilet",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "hal-04.jpg",
+  "filter": "overig",
+  "label": "Hal & toilet",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "hal-05.jpg",
+  "filter": "overig",
+  "label": "Hal & toilet",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "hal-06.jpg",
+  "filter": "overig",
+  "label": "Hal & toilet",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "hal-07.jpg",
+  "filter": "overig",
+  "label": "Hal & toilet",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "buiten-01.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-02.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-03.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "buiten-04.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-05.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-06.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-07.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-08.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-09.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-10.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-11.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-12.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-13.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-14.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-15.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 1335,
+  "h": 2000
+ },
+ {
+  "file": "buiten-16.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-17.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-18.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-19.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-20.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ },
+ {
+  "file": "buiten-21.jpg",
+  "filter": "buiten",
+  "label": "Tuin & buiten",
+  "w": 2000,
+  "h": 1335
+ }
+]

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zipstraat25.be/sitemap.xml
