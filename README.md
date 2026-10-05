@@ -3,7 +3,7 @@
 Website voor de verkoop van de woning **Zipstraat 25, 3900 Pelt (België)**.
 
 - **Live:** https://zipstraat25.be
-- **Hosting:** GitHub Pages, vanaf branch `main`, map `/ (root)`
+- **Hosting:** GitHub Pages, map `/ (root)`. Bronbranch `volledige-site` = live, `main` = onder constructie (zie "Online of offline zetten")
 - **Techniek:** statische HTML/CSS. Geen build, geen framework, geen afhankelijkheden.
   Je kunt `index.html` gewoon dubbelklikken om de site lokaal te bekijken.
 
@@ -17,39 +17,57 @@ Website voor de verkoop van de woning **Zipstraat 25, 3900 Pelt (België)**.
 | `img/full/` | Foto's op 2000 px — gebruikt in de lightbox en voor de grote beelden |
 | `img/thumb/` | Foto's op 900 px — gebruikt in het galerijraster |
 | `img/photos.json` | Lijst van alle foto's met ruimte en afmetingen |
+| `_wissel.ps1` | Zet de site online of offline (zie "Online of offline zetten") |
 | `CNAME` | Vertelt GitHub Pages dat het domein `zipstraat25.be` is. **Niet verwijderen.** |
 | `sitemap.xml`, `robots.txt` | Voor Google |
 
 ## Nog aan te vullen
 
-1. **Energiescore en EPC-certificaatnummer** — het label (**B**) staat ingevuld, maar
-   de score in kWh/m²jaar en het certificaatnummer staan nog op `In aanvraag`. Beide
-   staan op de eerste bladzijde van het EPC-attest. In Vlaanderen is het wettelijk
-   verplicht om bij publiciteit zowel het label als de score te vermelden.
-2. **Stedenbouwkundige info** — de overige velden in de sectie `INFO` staan op
-   `In aanvraag`; op te vragen bij gemeente Pelt, en de P- en G-score gratis via
-   waterinfo.be.
-3. **Videorondleiding** — de sectie `VIDEO` toont nu een tijdelijke placeholder
+1. **Stedenbouwkundige info bevestigen** — de vier infovelden Stedenbouwkundige
+   bestemming, Stedenbouwkundige vergunning, Dagvaarding handhaving en Voorkooprecht
+   tonen nu PLACEHOLDER-waarden (Woongebied / Vergunning verleend / Geen dagvaarding
+   of herstelvordering / Geen voorkooprecht). Bevestig ze met het stedenbouwkundig
+   uittreksel van gemeente Pelt vóór de site live gaat (zoek op `PLACEHOLDER` in
+   `index.html`).
+2. **Videorondleiding** — de sectie `VIDEO` toont nu een tijdelijke placeholder
    (`dQw4w9WgXcQ`). Vervang dat ID door het echte YouTube-ID vóór de woning
    publiek gedeeld wordt.
 
-De vraagprijs (€ 420.000) staat ingevuld in de hero, de kerncijfers, de social
-preview en de structured data. Wijzigt de prijs, zoek dan op `420` in `index.html`
+De vraagprijs (€ 445.000) staat ingevuld in de hero, de kerncijfers, de social
+preview en de structured data. Wijzigt de prijs, zoek dan op `445` in `index.html`
 en pas alle vier de plekken aan.
 
 ## Bezoekers tellen
 
-De teller staat klaar maar is nog uitgeschakeld. Activeren:
+De GoatCounter-teller staat actief op alle pagina's, met code `zipstraat25`.
+Eenmalige stap: maak een gratis account op https://www.goatcounter.com/signup met
+exact die code `zipstraat25`. Is de code al bezet, kies dan een andere en vervang
+`zipstraat25.goatcounter.com` in `index.html`, `beleving.html` en de
+onder-constructie-pagina op branch `main`.
 
-1. Maak een gratis account op https://www.goatcounter.com/signup en kies een code,
-   bijvoorbeeld `zipstraat25`.
-2. Open `index.html`, zoek onderaan het blok `BEZOEKERSTELLER`, vervang `JOUWCODE`
-   door je eigen code en verwijder de twee commentaarregels eromheen.
-3. Plak diezelfde scriptregel ook onderaan in `beleving.html`.
-4. Je statistieken staan daarna op `https://JOUWCODE.goatcounter.com`.
+Je statistieken staan op https://zipstraat25.goatcounter.com.
 
 GoatCounter plaatst **geen cookies** en bewaart geen persoonsgegevens, dus je hebt
 geen cookiebanner nodig. Google Analytics zou die wél vereisen.
+
+## Online of offline zetten
+
+De site leeft op twee branches, die allebei het bestand `CNAME` bevatten:
+
+- `volledige-site` — de volledige website
+- `main` — de 'onder constructie'-pagina
+
+Welke branch GitHub Pages toont, bepaalt of de site online of offline is:
+
+```powershell
+.\_wissel.ps1 live      # toont de volledige site (branch volledige-site)
+.\_wissel.ps1 offline   # toont de onder-constructie-pagina (branch main)
+.\_wissel.ps1 status    # toont welke branch nu gepubliceerd wordt
+```
+
+Het wisselen duurt ongeveer een minuut. Wijzigingen aan de volledige site horen op
+branch `volledige-site` en moeten gepusht worden. Zonder het script kan het ook via
+GitHub → Settings → Pages → Branch.
 
 ## Een wijziging publiceren
 
