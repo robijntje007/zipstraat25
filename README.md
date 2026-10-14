@@ -39,13 +39,10 @@ en pas alle vier de plekken aan.
 
 ## Bezoekers tellen
 
-De GoatCounter-teller staat actief op alle pagina's, met code `zipstraat25`.
-Eenmalige stap: maak een gratis account op https://www.goatcounter.com/signup met
-exact die code `zipstraat25`. Is de code al bezet, kies dan een andere en vervang
-`zipstraat25.goatcounter.com` in `index.html`, `beleving.html` en de
-onder-constructie-pagina op branch `main`.
+De GoatCounter-teller staat actief op alle pagina's, met code `robd`
+(`robd.goatcounter.com` in `index.html` en `beleving.html`).
 
-Je statistieken staan op https://zipstraat25.goatcounter.com.
+Je statistieken staan op https://robd.goatcounter.com.
 
 GoatCounter plaatst **geen cookies** en bewaart geen persoonsgegevens, dus je hebt
 geen cookiebanner nodig. Google Analytics zou die wél vereisen.
